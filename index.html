@@ -1,54 +1,61 @@
 <!DOCTYPE html>
+
 <html lang="en">
 
 <head>
 
-    <meta charset="UTF-8">
+```
+<meta charset="UTF-8">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
 
-    <meta
-        name="description"
-        content="A special little journey made with love for my Bhalu."
-    >
+<meta
+    name="description"
+    content="A special birthday, apology and love story created especially for my Bhalu."
+>
 
-    <title>For My Bhalu 🐻❤️</title>
+<meta
+    name="theme-color"
+    content="#ff5c8a"
+>
 
-    <!-- Google Fonts -->
-    <link
-        rel="preconnect"
-        href="https://fonts.googleapis.com"
-    >
+<title>For My Bhalu 🐻❤️ | Our Story</title>
 
-    <link
-        rel="preconnect"
-        href="https://fonts.gstatic.com"
-        crossorigin
-    >
+<!-- Google Fonts -->
+<link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+>
 
-    <link
-        href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet"
-    >
+<link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+>
 
-    <!-- Your CSS -->
-    <link
-        rel="stylesheet"
-        href="style.css"
-    >
+<link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+>
+
+<!-- External CSS -->
+<link
+    rel="stylesheet"
+    href="style.css"
+>
+```
 
 </head>
 
-
 <body>
 
-
-<!-- =====================================================
+```
+<!-- ==================================================
      LOADING SCREEN
-===================================================== -->
+=================================================== -->
 
 <div
     id="loadingScreen"
@@ -61,12 +68,12 @@
             ❤️
         </div>
 
-        <h2>
-            Preparing Something Special...
-        </h2>
+        <h1>
+            Something Special Is Loading...
+        </h1>
 
         <p>
-            Made with love, only for you.
+            Just for my Bhalu 🐻💕
         </p>
 
         <div class="loading-bar">
@@ -78,85 +85,8 @@
 
         </div>
 
-    </div>
-
-</div>
-
-
-
-<!-- =====================================================
-     BACKGROUND EFFECTS
-===================================================== -->
-
-<div
-    id="background"
-    class="background"
->
-
-</div>
-
-
-<div
-    id="stars"
-    class="stars"
->
-
-</div>
-
-
-<div
-    id="floatingHearts"
-    class="floating-hearts"
->
-
-</div>
-
-
-<div
-    id="petals"
-    class="petals"
->
-
-</div>
-
-
-
-<!-- =====================================================
-     MUSIC PLAYER
-===================================================== -->
-
-<audio
-    id="backgroundMusic"
-    src="birthday-song.mp3"
-    loop
->
-
-</audio>
-
-
-<div
-    id="musicPlayer"
-    class="music-player"
->
-
-    <button
-        id="musicToggle"
-        class="music-toggle"
-        aria-label="Toggle music"
-    >
-
-        🎵
-
-    </button>
-
-
-    <div
-        id="musicInfo"
-        class="music-info"
-    >
-
-        <span>
-            A little song for you ❤️
+        <span class="loading-status">
+            Preparing our memories...
         </span>
 
     </div>
@@ -164,2358 +94,1778 @@
 </div>
 
 
+<!-- ==================================================
+     GLOBAL EFFECT CONTAINERS
+=================================================== -->
 
-<!-- =====================================================
-     MAIN WEBSITE
-===================================================== -->
+<div
+    id="floatingHearts"
+    class="floating-hearts"
+    aria-hidden="true"
+></div>
 
-<main
-    id="mainContent"
-    class="main-content"
+<div
+    id="petals"
+    class="petals"
+    aria-hidden="true"
+></div>
+
+<div
+    id="confettiContainer"
+    class="confetti-container"
+    aria-hidden="true"
+></div>
+
+<div
+    id="heartBurstContainer"
+    class="heart-burst-container"
+    aria-hidden="true"
+></div>
+
+
+<!-- ==================================================
+     BACKGROUND MUSIC
+=================================================== -->
+
+<audio
+    id="backgroundMusic"
+    src="music/birthday-song.mp3"
+    loop
+    preload="auto"
+></audio>
+
+
+<button
+    id="musicToggle"
+    class="music-toggle"
+    type="button"
+    aria-label="Play or pause background music"
+>
+    🎵
+</button>
+
+
+<!-- ==================================================
+     NAVIGATION
+=================================================== -->
+
+<nav
+    id="mainNavigation"
+    class="main-navigation"
+    aria-label="Main navigation"
 >
 
+    <a href="#home">
+        Home
+    </a>
+
+    <a href="#ourStory">
+        Our Story
+    </a>
+
+    <a href="#memories">
+        Memories
+    </a>
+
+    <a href="#reasons">
+        100 Reasons
+    </a>
+
+    <a href="#future">
+        Future
+    </a>
+
+    <a href="#finalSurprise">
+        ❤️
+    </a>
+
+</nav>
 
 
-<!-- =====================================================
-     SECTION 1 — CINEMATIC WELCOME
-===================================================== -->
+<!-- ==================================================
+     SECTION 01 — HERO
+=================================================== -->
 
-<section
-    id="welcome"
-    class="section welcome-section"
->
+<main id="mainContent">
 
-    <div class="cinematic-overlay">
+    <section
+        id="home"
+        class="hero-section page-section"
+    >
 
-    </div>
+        <div class="hero-background"></div>
 
+        <div class="hero-overlay"></div>
 
-    <div class="welcome-content">
+        <div class="hero-content reveal">
 
-        <p
-            class="eyebrow"
-        >
-            ✨ A Little Something From My Heart ✨
-        </p>
-
-
-        <h1
-            class="main-title"
-        >
-
-            For My
-
-            <span>
-                Bhalu
-            </span>
-
-            🐻❤️
-
-        </h1>
-
-
-        <p
-            class="welcome-subtitle"
-        >
-
-            This isn't just a website.
-
-            <br>
-
-            It's a tiny piece of my heart,
-            created especially for you.
-
-        </p>
-
-
-        <div
-            class="welcome-heart"
-        >
-
-            ❤️
-
-        </div>
-
-
-        <button
-            id="beginJourney"
-            class="primary-btn"
-        >
-
-            Open My Heart
-
-            <span>
-                💌
-            </span>
-
-        </button>
-
-
-        <p
-            class="scroll-hint"
-        >
-
-            Take a deep breath...
-
-            <br>
-
-            and stay with me for a little while.
-
-        </p>
-
-    </div>
-
-</section>
-
-
-
-<!-- =====================================================
-     SECTION 2 — BEFORE YOU OPEN THIS
-===================================================== -->
-
-<section
-    id="beforeYouOpen"
-    class="section emotional-section"
->
-
-    <div class="section-container">
-
-        <div class="section-number">
-            01
-        </div>
-
-
-        <div class="emotional-card">
-
-            <div class="card-icon">
-                🌙
+            <div class="hero-badge">
+                MADE WITH LOVE
             </div>
 
+            <div class="hero-heart">
+                ❤️
+            </div>
+
+            <p class="hero-small-text">
+                FOR THE MOST SPECIAL GIRL IN MY WORLD
+            </p>
+
+            <h1>
+                Happy Birthday,
+                <span>My Bhalu</span>
+                🐻
+            </h1>
+
+            <p class="hero-subtitle">
+                This isn't just a website.
+                <br>
+                This is a little piece of my heart,
+                made especially for you.
+            </p>
+
+            <button
+                id="beginJourney"
+                class="primary-button"
+                type="button"
+            >
+
+                Begin Our Journey
+
+                <span>
+                    ↓
+                </span>
+
+            </button>
+
+            <div class="scroll-indicator">
+
+                <span>
+                    Scroll to begin
+                </span>
+
+                <span>
+                    ↓
+                </span>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ==================================================
+         SECTION 02 — INTRODUCTION
+    =================================================== -->
+
+    <section
+        id="intro"
+        class="intro-section page-section"
+    >
+
+        <div class="section-container reveal">
+
+            <span class="section-label">
+                CHAPTER 01
+            </span>
 
             <h2>
-                Before You Open This...
+                Before We Begin...
             </h2>
 
+            <div class="heart-divider">
+                ❤️
+            </div>
+
+            <p
+                id="introTyping"
+                class="typing-text large-text"
+                data-typing="Before you explore this little world I created for you, I want you to know something. Every word, every picture, every memory and every little detail here exists because you are important to me."
+            ></p>
 
             <p>
-
-                I want you to know something.
-
-                <br><br>
-
-                I know that sometimes words aren't enough.
-
-                I know that saying "I'm sorry"
-                doesn't magically erase everything.
-
-                <br><br>
-
-                So instead of just saying it...
-
-                I wanted to show you
-                how much you mean to me.
-
-                <br><br>
-
-                I made this little world
-                just for you.
-
-                <br><br>
-
-                Take your time.
-
-                Read everything.
-
-                Watch everything.
-
-                And most importantly...
-
-                remember that you are loved.
-
+                So take a deep breath.
             </p>
 
+            <p>
+                Put a little smile on your face.
+            </p>
 
-            <button
-                class="next-btn"
-                data-next="whyIMadeThis"
-            >
-
-                Continue ❤️
-
-            </button>
+            <p>
+                And let's take a journey
+                through our story.
+            </p>
 
         </div>
 
-    </div>
-
-</section>
+    </section>
 
 
+    <!-- ==================================================
+         SECTION 03 — OUR STORY
+    =================================================== -->
 
-<!-- =====================================================
-     SECTION 3 — WHY I MADE THIS
-===================================================== -->
+    <section
+        id="ourStory"
+        class="story-section page-section"
+    >
 
-<section
-    id="whyIMadeThis"
-    class="section"
->
+        <div class="section-container">
 
-    <div class="section-container">
+            <div class="section-heading reveal">
 
-        <div class="section-number">
-            02
-        </div>
+                <span class="section-label">
+                    CHAPTER 02
+                </span>
 
+                <h2>
+                    Once Upon A Time...
+                </h2>
 
-        <div class="content-card">
+                <p>
+                    Two people met.
+                    And a beautiful story slowly began.
+                </p>
 
-            <div class="card-icon">
-                💌
             </div>
 
 
+            <div class="story-timeline">
+
+
+                <article class="story-item reveal">
+
+                    <div class="story-number">
+                        01
+                    </div>
+
+                    <div class="story-card">
+
+                        <span>
+                            THE BEGINNING
+                        </span>
+
+                        <h3>
+                            The Day We Met
+                        </h3>
+
+                        <p>
+                            Maybe we didn't know it then,
+                            but that moment became the beginning
+                            of something that would become
+                            incredibly special to me.
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+                <article class="story-item reveal">
+
+                    <div class="story-number">
+                        02
+                    </div>
+
+                    <div class="story-card">
+
+                        <span>
+                            THE JOURNEY
+                        </span>
+
+                        <h3>
+                            Getting To Know You
+                        </h3>
+
+                        <p>
+                            Every conversation,
+                            every laugh,
+                            every silly little moment
+                            made me discover another reason
+                            to love having you in my life.
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+                <article class="story-item reveal">
+
+                    <div class="story-number">
+                        03
+                    </div>
+
+                    <div class="story-card">
+
+                        <span>
+                            THE MEMORIES
+                        </span>
+
+                        <h3>
+                            Everything We Shared
+                        </h3>
+
+                        <p>
+                            Some memories are big.
+                            Some are tiny.
+                            But the ones made with you
+                            are always special to me.
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+                <article class="story-item reveal">
+
+                    <div class="story-number">
+                        04
+                    </div>
+
+                    <div class="story-card">
+
+                        <span>
+                            TODAY
+                        </span>
+
+                        <h3>
+                            Here We Are
+                        </h3>
+
+                        <p>
+                            Still learning.
+                            Still growing.
+                            Still creating memories.
+                            And hopefully still writing
+                            our story together.
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ==================================================
+         SECTION 04 — APOLOGY
+    =================================================== -->
+
+    <section
+        id="apology"
+        class="apology-section page-section"
+    >
+
+        <div class="section-container reveal">
+
+            <span class="section-label">
+                CHAPTER 03
+            </span>
+
             <h2>
-                Why I Made This For You
+                I'm Sorry, Bhalu
             </h2>
 
+            <div class="heart-divider">
+                🥺❤️
+            </div>
 
             <p
-                class="typing-target"
-                id="whyText"
-            >
+                id="apologyTyping"
+                class="typing-text apology-intro"
+                data-typing="I know I am not perfect. I know there have been moments when my words or actions may have hurt you. And for every moment I made you sad, disappointed you, or made you feel unloved, I am truly sorry."
+            ></p>
 
-            </p>
 
+            <div class="apology-card">
 
-            <button
-                class="next-btn"
-                data-next="apology"
-            >
+                <div class="apology-icon">
+                    🥺
+                </div>
 
-                I Have Something To Say...
+                <h3>
+                    I Never Want To Be
+                    The Reason Behind Your Tears.
+                </h3>
 
-                🥺
+                <p>
+                    I want to be the person who makes
+                    your difficult days a little easier.
+                </p>
 
-            </button>
+                <p>
+                    The person who listens when you need
+                    someone to hear you.
+                </p>
+
+                <p>
+                    The person who makes you laugh
+                    when you don't feel like smiling.
+                </p>
+
+                <p>
+                    And the person you can always trust
+                    to be there.
+                </p>
+
+                <div class="apology-signature">
+                    I'm really sorry, Bhalu.
+                    ❤️
+                </div>
+
+            </div>
 
         </div>
 
-    </div>
-
-</section>
+    </section>
 
 
+    <!-- ==================================================
+         SECTION 05 — MEMORIES
+    =================================================== -->
 
-<!-- =====================================================
-     SECTION 4 — THE APOLOGY
-===================================================== -->
+    <section
+        id="memories"
+        class="memories-section page-section"
+    >
 
-<section
-    id="apology"
-    class="section apology-section"
->
+        <div class="section-container">
 
-    <div class="section-container">
+            <div class="section-heading reveal">
 
-        <div class="section-number">
-            03
-        </div>
+                <span class="section-label">
+                    CHAPTER 04
+                </span>
 
+                <h2>
+                    Our Beautiful Memories
+                </h2>
 
-        <div class="letter-card">
+                <p>
+                    Moments pass.
+                    Memories stay forever.
+                </p>
 
-            <div class="letter-decoration">
-                💗
             </div>
 
 
-            <p
-                class="letter-label"
+            <!-- MEMORY 01 -->
+
+            <article
+                id="memory1"
+                class="memory-card reveal"
             >
 
-                From My Heart
+                <div class="memory-media">
 
-            </p>
+                    <img
+                        src="images/memory1.jpg"
+                        alt="Our first special memory"
+                        loading="lazy"
+                    >
+
+                </div>
+
+                <div class="memory-content">
+
+                    <span>
+                        MEMORY 01
+                    </span>
+
+                    <h3>
+                        The Beginning
+                    </h3>
+
+                    <p>
+                        This picture reminds me of
+                        a moment that I will always
+                        keep close to my heart.
+                    </p>
+
+                    <p>
+                        Because it was a moment
+                        shared with you.
+                    </p>
+
+                </div>
+
+            </article>
 
 
-            <h2>
-                I'm Truly Sorry, Bhalu
-            </h2>
+            <!-- MEMORY 02 -->
+
+            <article
+                id="memory2"
+                class="memory-card reverse reveal"
+            >
+
+                <div class="memory-media">
+
+                    <img
+                        src="images/memory2.jpg"
+                        alt="Our second special memory"
+                        loading="lazy"
+                    >
+
+                </div>
+
+                <div class="memory-content">
+
+                    <span>
+                        MEMORY 02
+                    </span>
+
+                    <h3>
+                        A Moment I Treasure
+                    </h3>
+
+                    <p>
+                        Looking back at our memories
+                        always reminds me how lucky
+                        I feel to have experienced
+                        these moments with you.
+                    </p>
+
+                </div>
+
+            </article>
+
+
+            <!-- MEMORY 03 -->
+
+            <article
+                id="memory3"
+                class="memory-card reveal"
+            >
+
+                <div class="memory-media">
+
+                    <img
+                        src="images/memory3.jpg"
+                        alt="Our third special memory"
+                        loading="lazy"
+                    >
+
+                </div>
+
+                <div class="memory-content">
+
+                    <span>
+                        MEMORY 03
+                    </span>
+
+                    <h3>
+                        Another Chapter
+                    </h3>
+
+                    <p>
+                        One more picture.
+                        One more memory.
+                        One more reason to smile.
+                    </p>
+
+                </div>
+
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <!-- ==================================================
+         SECTION 06 — VIDEO MEMORIES
+    =================================================== -->
+
+    <section
+        id="videoMemories"
+        class="video-section page-section"
+    >
+
+        <div class="section-container">
+
+            <div class="section-heading reveal">
+
+                <span class="section-label">
+                    CHAPTER 05
+                </span>
+
+                <h2>
+                    Memories In Motion 🎬
+                </h2>
+
+                <p>
+                    Some memories deserve
+                    to be watched again and again.
+                </p>
+
+            </div>
+
+
+            <div class="video-grid">
+
+
+                <article class="video-card reveal">
+
+                    <div class="video-wrapper">
+
+                        <video
+                            controls
+                            playsinline
+                            preload="metadata"
+                        >
+
+                            <source
+                                src="videos/memory-video.mp4"
+                                type="video/mp4"
+                            >
+
+                            Your browser does not support
+                            the video element.
+
+                        </video>
+
+                    </div>
+
+                    <h3>
+                        A Memory To Remember
+                    </h3>
+
+                </article>
+
+
+                <article class="video-card reveal">
+
+                    <div class="video-wrapper">
+
+                        <video
+                            controls
+                            playsinline
+                            preload="metadata"
+                        >
+
+                            <source
+                                src="videos/video1.mp4"
+                                type="video/mp4"
+                            >
+
+                            Your browser does not support
+                            the video element.
+
+                        </video>
+
+                    </div>
+
+                    <h3>
+                        Another Beautiful Moment
+                    </h3>
+
+                </article>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ==================================================
+         SECTION 07 — WHAT YOU MEAN TO ME
+    =================================================== -->
+
+    <section
+        id="meaning"
+        class="meaning-section page-section"
+    >
+
+        <div class="section-container">
+
+            <div class="section-heading reveal">
+
+                <span class="section-label">
+                    CHAPTER 06
+                </span>
+
+                <h2>
+                    What You Mean To Me
+                </h2>
+
+                <p>
+                    If I had to describe you
+                    in a few words...
+                </p>
+
+            </div>
+
+
+            <div class="meaning-grid">
+
+
+                <article class="meaning-card reveal">
+
+                    <div class="meaning-icon">
+                        🏠
+                    </div>
+
+                    <h3>
+                        My Home
+                    </h3>
+
+                    <p>
+                        With you,
+                        I feel comfortable
+                        being myself.
+                    </p>
+
+                </article>
+
+
+                <article class="meaning-card reveal">
+
+                    <div class="meaning-icon">
+                        🌙
+                    </div>
+
+                    <h3>
+                        My Peace
+                    </h3>
+
+                    <p>
+                        You bring calm
+                        to the loudest parts
+                        of my mind.
+                    </p>
+
+                </article>
+
+
+                <article class="meaning-card reveal">
+
+                    <div class="meaning-icon">
+                        ☀️
+                    </div>
+
+                    <h3>
+                        My Happiness
+                    </h3>
+
+                    <p>
+                        Your smile has a way
+                        of making everything
+                        feel better.
+                    </p>
+
+                </article>
+
+
+                <article class="meaning-card reveal">
+
+                    <div class="meaning-icon">
+                        🫶
+                    </div>
+
+                    <h3>
+                        My Person
+                    </h3>
+
+                    <p>
+                        You are someone
+                        I want beside me
+                        through life's journey.
+                    </p>
+
+                </article>
+
+
+                <article class="meaning-card reveal">
+
+                    <div class="meaning-icon">
+                        ✨
+                    </div>
+
+                    <h3>
+                        My Favorite Memory
+                    </h3>
+
+                    <p>
+                        So many of my favorite
+                        moments have you in them.
+                    </p>
+
+                </article>
+
+
+                <article class="meaning-card reveal">
+
+                    <div class="meaning-icon">
+                        ♾️
+                    </div>
+
+                    <h3>
+                        My Forever Wish
+                    </h3>
+
+                    <p>
+                        To keep making
+                        beautiful memories
+                        with you.
+                    </p>
+
+                </article>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ==================================================
+         SECTION 08 — 100 REASONS
+    =================================================== -->
+
+    <section
+        id="reasons"
+        class="reasons-section page-section"
+    >
+
+        <div class="section-container">
+
+            <div class="section-heading reveal">
+
+                <span class="section-label">
+                    CHAPTER 07
+                </span>
+
+                <h2>
+                    100 Reasons Why I Love You
+                </h2>
+
+                <p>
+                    I could write thousands...
+                    but let's start with 100.
+                </p>
+
+            </div>
 
 
             <div
-                id="apologyText"
-                class="letter-text"
+                id="reasonCard"
+                class="reason-card reveal"
             >
 
-                <p>
+                <span
+                    id="reasonNumber"
+                    class="reason-number"
+                >
+                    REASON 1 OF 100
+                </span>
 
-                    I know I made mistakes.
-
-                </p>
-
-
-                <p>
-
-                    I know there may have been moments
-                    when my words, actions, or decisions
-                    hurt you.
-
-                </p>
-
-
-                <p>
-
-                    And for every moment that I made
-                    your heart feel heavy...
-
-                    I'm truly sorry.
-
-                </p>
-
-
-                <p>
-
-                    I don't want to make excuses.
-
-                    I don't want to pretend
-                    that everything is okay
-                    when I know you're hurting.
-
-                </p>
-
-
-                <p>
-
-                    Your feelings are real.
-
-                    Your sadness is real.
-
-                    And you deserve to be heard.
-
-                </p>
-
-
-                <p>
-
-                    I can't change the past.
-
-                    But I can learn from it.
-
-                    I can listen better.
-
-                    I can understand you better.
-
-                    And I can become a better version
-                    of myself.
-
-                </p>
-
-
-                <p>
-
-                    I'm not asking you
-                    to forget everything immediately.
-
-                </p>
-
-
-                <p>
-
-                    I'm only asking you
-                    to remember that behind all my mistakes
-                    is someone who genuinely loves you
-                    and never wants to lose you.
-
-                </p>
-
+                <div class="reason-icon">
+                    ❤️
+                </div>
 
                 <p
-                    class="special-line"
+                    id="reasonText"
+                    class="reason-text"
                 >
-
-                    I'm sorry, my Bhalu.
-
-                    🐻❤️
-
+                    Because your smile
+                    makes my entire world brighter.
                 </p>
 
-            </div>
-
-
-            <button
-                class="next-btn"
-                data-next="thingsILove"
-            >
-
-                Let Me Tell You Something Else...
-
-                🫶
-
-            </button>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- =====================================================
-     SECTION 5 — THINGS I LOVE ABOUT YOU
-===================================================== -->
-
-<section
-    id="thingsILove"
-    class="section"
->
-
-    <div class="section-container">
-
-        <div class="section-number">
-            04
-        </div>
-
-
-        <h2 class="section-title">
-
-            Things I Love About You
-
-            ❤️
-
-        </h2>
-
-
-        <p class="section-subtitle">
-
-            It's not just one thing.
-
-            It's a thousand little things.
-
-        </p>
-
-
-        <div class="love-grid">
-
-
-            <div class="love-card">
-
-                <span>
-                    😊
-                </span>
-
-                <h3>
-                    Your Smile
-                </h3>
-
-                <p>
-
-                    Your smile has a way
-                    of making everything
-                    feel a little better.
-
-                </p>
-
-            </div>
-
-
-            <div class="love-card">
-
-                <span>
-                    🥰
-                </span>
-
-                <h3>
-                    Your Cuteness
-                </h3>
-
-                <p>
-
-                    You can be the cutest person
-                    in the world without
-                    even trying.
-
-                </p>
-
-            </div>
-
-
-            <div class="love-card">
-
-                <span>
-                    🫶
-                </span>
-
-                <h3>
-                    Your Heart
-                </h3>
-
-                <p>
-
-                    You care deeply.
-
-                    You love deeply.
-
-                    And that's something
-                    I treasure about you.
-
-                </p>
-
-            </div>
-
-
-            <div class="love-card">
-
-                <span>
-                    👀
-                </span>
-
-                <h3>
-                    Your Eyes
-                </h3>
-
-                <p>
-
-                    I could probably spend
-                    forever getting lost
-                    in them.
-
-                </p>
-
-            </div>
-
-
-            <div class="love-card">
-
-                <span>
-                    😂
-                </span>
-
-                <h3>
-                    Your Laugh
-                </h3>
-
-                <p>
-
-                    Your laugh is one
-                    of my favorite sounds
-                    in this world.
-
-                </p>
-
-            </div>
-
-
-            <div class="love-card">
-
-                <span>
-                    🐻
-                </span>
-
-                <h3>
-                    Your Bhalu Side
-                </h3>
-
-                <p>
-
-                    The little things
-                    that make you uniquely you.
-
-                    That's what I love.
-
-                </p>
-
-            </div>
-
-
-        </div>
-
-
-        <button
-            class="next-btn"
-            data-next="ourStory"
-        >
-
-            Let's Go Back To The Beginning...
-
-            📖
-
-        </button>
-
-    </div>
-
-</section>
-
-
-
-<!-- =====================================================
-     SECTION 6 — OUR STORY
-===================================================== -->
-
-<section
-    id="ourStory"
-    class="section story-section"
->
-
-    <div class="section-container">
-
-        <div class="section-number">
-            05
-        </div>
-
-
-        <h2 class="section-title">
-
-            Once Upon A Time...
-
-            📖❤️
-
-        </h2>
-
-
-        <p class="section-subtitle">
-
-            And then...
-
-            there was us.
-
-        </p>
-
-
-        <div class="timeline">
-
-
-            <div class="timeline-item">
-
-                <div class="timeline-dot">
-                    ✨
-                </div>
-
-                <div class="timeline-content">
-
-                    <span>
-                        Chapter One
-                    </span>
-
-                    <h3>
-                        The Day We Met
-                    </h3>
-
-                    <p>
-
-                        Add your personal story here.
-
-                        Tell her what you remember
-                        about the first time you met.
-
-                    </p>
-
-                </div>
-
-            </div>
-
-
-            <div class="timeline-item">
-
-                <div class="timeline-dot">
-                    💬
-                </div>
-
-                <div class="timeline-content">
-
-                    <span>
-                        Chapter Two
-                    </span>
-
-                    <h3>
-                        Our First Conversations
-                    </h3>
-
-                    <p>
-
-                        Write about the first conversations
-                        that made you realize
-                        she was special.
-
-                    </p>
-
-                </div>
-
-            </div>
-
-
-            <div class="timeline-item">
-
-                <div class="timeline-dot">
+                <button
+                    id="nextReason"
+                    class="primary-button"
+                    type="button"
+                >
+                    Show Me Another Reason
                     💕
-                </div>
-
-                <div class="timeline-content">
-
-                    <span>
-                        Chapter Three
-                    </span>
-
-                    <h3>
-                        When We Became "Us"
-                    </h3>
-
-                    <p>
-
-                        Add the moment when
-                        your relationship became
-                        something truly special.
-
-                    </p>
-
-                </div>
+                </button>
 
             </div>
-
-
-            <div class="timeline-item">
-
-                <div class="timeline-dot">
-                    💋
-                </div>
-
-                <div class="timeline-content">
-
-                    <span>
-                        Chapter Four
-                    </span>
-
-                    <h3>
-                        Our First Kiss
-                    </h3>
-
-                    <p>
-
-                        A moment you both
-                        will never forget.
-
-                    </p>
-
-                </div>
-
-            </div>
-
-
-            <div class="timeline-item">
-
-                <div class="timeline-dot">
-                    ♾️
-                </div>
-
-                <div class="timeline-content">
-
-                    <span>
-                        Chapter Five
-                    </span>
-
-                    <h3>
-                        To Be Continued...
-                    </h3>
-
-                    <p>
-
-                        Because our story
-                        isn't supposed to end here.
-
-                    </p>
-
-                </div>
-
-            </div>
-
 
         </div>
 
+    </section>
 
-        <button
-            class="next-btn"
-            data-next="memoryLane"
-        >
 
-            Walk Down Memory Lane
+    <!-- ==================================================
+         SECTION 09 — LOVE LETTER
+    =================================================== -->
 
-            📸
+    <section
+        id="loveLetter"
+        class="love-letter-section page-section"
+    >
 
-        </button>
+        <div class="section-container reveal">
 
-    </div>
-
-</section>
-
-
-
-<!-- =====================================================
-     SECTION 7 — MEMORY LANE
-===================================================== -->
-
-<section
-    id="memoryLane"
-    class="section"
->
-
-    <div class="section-container">
-
-        <div class="section-number">
-            06
-        </div>
-
-
-        <h2 class="section-title">
-
-            Our Memory Lane
-
-            📸❤️
-
-        </h2>
-
-
-        <p class="section-subtitle">
-
-            Every picture holds a story.
-
-            Every story holds a feeling.
-
-        </p>
-
-
-        <div class="memory-grid">
-
-
-            <div class="memory-card">
-
-                <img
-                    src="memory1.jpg"
-                    alt="Our First Memory"
-                >
-
-                <div class="memory-caption">
-
-                    <h3>
-                        Our First Memory
-                    </h3>
-
-                    <p>
-                        Add your special caption here.
-                    </p>
-
-                </div>
-
-            </div>
-
-
-            <div class="memory-card">
-
-                <img
-                    src="memory2.jpg"
-                    alt="A Beautiful Memory"
-                >
-
-                <div class="memory-caption">
-
-                    <h3>
-                        One Beautiful Day
-                    </h3>
-
-                    <p>
-                        A moment I wish I could relive.
-                    </p>
-
-                </div>
-
-            </div>
-
-
-            <div class="memory-card">
-
-                <img
-                    src="final.jpg"
-                    alt="Our Special Memory"
-                >
-
-                <div class="memory-caption">
-
-                    <h3>
-                        My Favorite Person
-                    </h3>
-
-                    <p>
-                        You make ordinary moments special.
-                    </p>
-
-                </div>
-
-            </div>
-
-
-        </div>
-
-
-        <button
-            class="next-btn"
-            data-next="videos"
-        >
-
-            Now Watch Our Memories
-
-            🎥
-
-        </button>
-
-    </div>
-
-</section>
-
-
-
-<!-- =====================================================
-     SECTION 8 — VIDEO MEMORIES
-===================================================== -->
-
-<section
-    id="videos"
-    class="section"
->
-
-    <div class="section-container">
-
-        <div class="section-number">
-            07
-        </div>
-
-
-        <h2 class="section-title">
-
-            Moments That Move
-
-            🎥❤️
-
-        </h2>
-
-
-        <div class="video-gallery">
-
-
-            <div class="video-card">
-
-                <video
-                    src="memory2.mp4"
-                    controls
-                    playsinline
-                ></video>
-
-                <h3>
-                    A Memory I'll Always Keep
-                </h3>
-
-                <p>
-                    Every second with you matters.
-                </p>
-
-            </div>
-
-
-            <div class="video-card">
-
-                <video
-                    src="memory3.mp4"
-                    controls
-                    playsinline
-                ></video>
-
-                <h3>
-                    Another Chapter Of Us
-                </h3>
-
-                <p>
-                    Here's to every moment we've shared.
-                </p>
-
-            </div>
-
-
-            <div class="video-card">
-
-                <video
-                    src="final-video.mp4"
-                    controls
-                    playsinline
-                ></video>
-
-                <h3>
-                    A Little Piece Of My Heart
-                </h3>
-
-                <p>
-                    This one is especially for you.
-                </p>
-
-            </div>
-
-
-        </div>
-
-
-        <button
-            class="next-btn"
-            data-next="turnBackTime"
-        >
-
-            If I Could Turn Back Time...
-
-            ⏳
-
-        </button>
-
-    </div>
-
-</section>
-
-
-
-<!-- =====================================================
-     SECTION 9 — IF I COULD TURN BACK TIME
-===================================================== -->
-
-<section
-    id="turnBackTime"
-    class="section emotional-section"
->
-
-    <div class="section-container">
-
-        <div class="section-number">
-            08
-        </div>
-
-
-        <div class="time-card">
-
-            <div class="card-icon">
-                ⏳
-            </div>
-
+            <span class="section-label">
+                CHAPTER 08
+            </span>
 
             <h2>
-                If I Could Turn Back Time...
+                A Letter From My Heart
             </h2>
 
-
-            <p>
-
-                I would go back to every moment
-                when you felt hurt.
-
-                <br><br>
-
-                I would choose my words more carefully.
-
-                <br><br>
-
-                I would listen instead of assuming.
-
-                <br><br>
-
-                I would hold you closer
-                instead of letting distance grow.
-
-                <br><br>
-
-                I would remind you sooner
-                how important you are to me.
-
-                <br><br>
-
-                But since I can't change the past...
-
-                <br><br>
-
-                I'll do everything I can
-                to make the future better.
-
-            </p>
-
-
-            <button
-                class="next-btn"
-                data-next="promises"
-            >
-
-                My Promises To You
-
-                🌹
-
-            </button>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- =====================================================
-     SECTION 10 — PROMISES
-===================================================== -->
-
-<section
-    id="promises"
-    class="section"
->
-
-    <div class="section-container">
-
-        <div class="section-number">
-            09
-        </div>
-
-
-        <h2 class="section-title">
-
-            My Promises To You
-
-            🌹
-
-        </h2>
-
-
-        <p class="section-subtitle">
-
-            Not just words.
-
-            Things I genuinely want to work on.
-
-        </p>
-
-
-        <div class="promise-grid">
-
-
-            <div class="promise-card">
-
-                <div>
-                    👂
-                </div>
-
-                <h3>
-                    I Promise To Listen
-                </h3>
+            <div class="letter-paper">
 
                 <p>
+                    My Bhalu,
+                </p>
 
-                    Your feelings deserve
-                    to be heard.
+                <p>
+                    If I could give you one gift,
+                    I would give you the ability
+                    to see yourself through my eyes.
+                </p>
 
-                    I will try to listen
-                    without interrupting,
-                    judging, or assuming.
+                <p>
+                    Then maybe you would understand
+                    just how beautiful, precious
+                    and important you really are to me.
+                </p>
 
+                <p>
+                    You are not just someone I love.
+                    You are someone I genuinely care about.
+                </p>
+
+                <p>
+                    Your happiness matters to me.
+                    Your dreams matter to me.
+                    Your feelings matter to me.
+                </p>
+
+                <p>
+                    I know I am not perfect.
+                    But I promise that I will always
+                    try to become a better person.
+                </p>
+
+                <p>
+                    I want to listen better.
+                    Understand better.
+                    Communicate better.
+                    And love you better.
+                </p>
+
+                <p>
+                    Thank you for being part
+                    of my life.
+                </p>
+
+                <p>
+                    Thank you for every smile.
+                    Every conversation.
+                    Every memory.
+                </p>
+
+                <p>
+                    And thank you for simply
+                    being you.
+                </p>
+
+                <p class="letter-signature">
+                    Forever yours,
+                    <br>
+                    Your Goomzee ❤️
                 </p>
 
             </div>
 
-
-            <div class="promise-card">
-
-                <div>
-                    🤍
-                </div>
-
-                <h3>
-                    I Promise To Respect You
-                </h3>
-
-                <p>
-
-                    Your boundaries,
-                    your feelings,
-                    your dreams,
-                    and your individuality
-                    will always matter.
-
-                </p>
-
-            </div>
-
-
-            <div class="promise-card">
-
-                <div>
-                    🫂
-                </div>
-
-                <h3>
-                    I Promise To Be There
-                </h3>
-
-                <p>
-
-                    Not only when things
-                    are easy.
-
-                    But especially when
-                    things get difficult.
-
-                </p>
-
-            </div>
-
-
-            <div class="promise-card">
-
-                <div>
-                    🌱
-                </div>
-
-                <h3>
-                    I Promise To Grow
-                </h3>
-
-                <p>
-
-                    I know love isn't
-                    about being perfect.
-
-                    It's about becoming
-                    better together.
-
-                </p>
-
-            </div>
-
-
-            <div class="promise-card">
-
-                <div>
-                    🔐
-                </div>
-
-                <h3>
-                    I Promise To Protect Your Trust
-                </h3>
-
-                <p>
-
-                    Trust is precious.
-
-                    I will always try
-                    to value it.
-
-                </p>
-
-            </div>
-
-
-            <div class="promise-card">
-
-                <div>
-                    ♾️
-                </div>
-
-                <h3>
-                    I Promise To Keep Choosing You
-                </h3>
-
-                <p>
-
-                    Through good days,
-                    bad days,
-                    happy days,
-                    and difficult days.
-
-                </p>
-
-            </div>
-
-
         </div>
 
-
-        <button
-            class="next-btn"
-            data-next="reasons"
-        >
-
-            But That's Not All...
-
-            💗
-
-        </button>
-
-    </div>
-
-</section>
+    </section>
 
 
+    <!-- ==================================================
+         SECTION 10 — SECRET MESSAGE
+    =================================================== -->
 
-<!-- =====================================================
-     SECTION 11 — 100 REASONS
-===================================================== -->
+    <section
+        id="secret"
+        class="secret-section page-section"
+    >
 
-<section
-    id="reasons"
-    class="section reasons-section"
->
+        <div class="section-container reveal">
 
-    <div class="section-container">
-
-        <div class="section-number">
-            10
-        </div>
-
-
-        <h2 class="section-title">
-
-            100 Reasons I Love You
-
-            💗
-
-        </h2>
-
-
-        <p class="section-subtitle">
-
-            Click the heart.
-
-            Discover one reason at a time.
-
-        </p>
-
-
-        <div
-            id="reasonCard"
-            class="reason-card"
-        >
-
-            <div
-                id="reasonNumber"
-                class="reason-number"
-            >
-
-                01
-
-            </div>
-
-
-            <div
-                id="reasonEmoji"
-                class="reason-emoji"
-            >
-
-                ❤️
-
-            </div>
-
-
-            <p
-                id="reasonText"
-                class="reason-text"
-            >
-
-                Because you make my world
-                feel more beautiful.
-
-            </p>
-
-
-            <button
-                id="nextReason"
-                class="heart-button"
-            >
-
-                ❤️
-
-            </button>
-
-
-            <p
-                id="reasonCounter"
-                class="reason-counter"
-            >
-
-                1 / 100
-
-            </p>
-
-        </div>
-
-
-        <button
-            class="next-btn"
-            data-next="secretMessage"
-        >
-
-            I Have A Secret For You...
-
-            🔐
-
-        </button>
-
-    </div>
-
-</section>
-
-
-
-<!-- =====================================================
-     SECTION 12 — SECRET MESSAGE
-===================================================== -->
-
-<section
-    id="secretMessage"
-    class="section secret-section"
->
-
-    <div class="section-container">
-
-        <div class="section-number">
-            11
-        </div>
-
-
-        <div class="secret-card">
-
-            <div class="secret-lock">
-
-                🔐
-
-            </div>
-
+            <span class="section-label">
+                CHAPTER 09
+            </span>
 
             <h2>
-                I Hid Something Here...
+                I Hid Something For You...
             </h2>
 
-
             <p>
-
-                Only my Bhalu can unlock it.
-
+                There is one message
+                I kept hidden.
             </p>
-
 
             <button
                 id="unlockSecret"
-                class="primary-btn"
+                class="primary-button"
+                type="button"
             >
-
-                Unlock My Secret
-
-                🔑
-
+                🔐 Unlock My Secret
             </button>
 
 
             <div
                 id="secretContent"
                 class="secret-content"
+                hidden
             >
 
-                <div class="secret-heart">
-                    💗
+                <div class="secret-icon">
+                    💌
                 </div>
 
-
                 <h3>
-                    Here's The Secret...
+                    My Secret Is...
                 </h3>
 
-
                 <p>
-
                     No matter how many people
-                    I meet in this life...
-
-                    <br><br>
-
-                    There will always be something
-                    uniquely special about you.
-
-                    <br><br>
-
-                    Something I can't explain.
-
-                    Something I don't want to lose.
-
-                    <br><br>
-
-                    You're not just someone
-                    I love.
-
-                    <br><br>
-
-                    You're someone
-                    I genuinely cherish.
-
-                    🐻❤️
-
+                    I meet in this world,
+                    there will always be
+                    something incredibly special
+                    about you.
                 </p>
+
+                <p>
+                    You have a place in my heart
+                    that nobody else can replace.
+                </p>
+
+                <strong>
+                    I love you more than
+                    I can explain. ❤️
+                </strong>
 
             </div>
 
         </div>
 
-    </div>
-
-</section>
+    </section>
 
 
+    <!-- ==================================================
+         SECTION 11 — FUTURE TIMELINE
+    =================================================== -->
 
-<!-- =====================================================
-     SECTION 13 — YOU ARE MY...
-===================================================== -->
+    <section
+        id="future"
+        class="future-section page-section"
+    >
 
-<section
-    id="youAreMy"
-    class="section"
->
+        <div class="section-container">
 
-    <div class="section-container">
+            <div class="section-heading reveal">
 
-        <div class="section-number">
-            12
-        </div>
-
-
-        <h2 class="section-title">
-
-            You Are My...
-
-            💗
-
-        </h2>
-
-
-        <div class="identity-grid">
-
-
-            <div class="identity-card">
-
-                <span>
-                    🏡
+                <span class="section-label">
+                    CHAPTER 10
                 </span>
 
-                <h3>
-                    Safe Place
-                </h3>
+                <h2>
+                    The Future I Hope For
+                </h2>
 
                 <p>
-                    The person I want
-                    to come home to.
+                    Our story isn't finished.
+                    There are still so many chapters
+                    waiting to be written.
                 </p>
 
             </div>
 
 
-            <div class="identity-card">
+            <div class="future-timeline">
 
-                <span>
-                    🌎
-                </span>
 
-                <h3>
-                    Favorite World
-                </h3>
+                <article class="future-item reveal">
 
-                <p>
-                    My favorite place
-                    is wherever you are.
-                </p>
+                    <div class="future-icon">
+                        🌍
+                    </div>
 
-            </div>
-
-
-            <div class="identity-card">
-
-                <span>
-                    🌹
-                </span>
-
-                <h3>
-                    Favorite Person
-                </h3>
-
-                <p>
-                    Out of everyone,
-                    it's still you.
-                </p>
-
-            </div>
-
-
-            <div class="identity-card">
-
-                <span>
-                    🫂
-                </span>
-
-                <h3>
-                    Warmest Hug
-                </h3>
-
-                <p>
-                    The hug I never
-                    want to end.
-                </p>
-
-            </div>
-
-
-            <div class="identity-card">
-
-                <span>
-                    ✨
-                </span>
-
-                <h3>
-                    Beautiful Memory
-                </h3>
-
-                <p>
-                    A part of my life
-                    I'll always treasure.
-                </p>
-
-            </div>
-
-
-            <div class="identity-card">
-
-                <span>
-                    ❤️
-                </span>
-
-                <h3>
-                    My Love
-                </h3>
-
-                <p>
-                    Simply and honestly...
-                    I love you.
-                </p>
-
-            </div>
-
-
-        </div>
-
-
-        <button
-            class="next-btn"
-            data-next="ifStillSad"
-        >
-
-            If You're Still Sad...
-
-            🫂
-
-        </button>
-
-    </div>
-
-</section>
-
-
-
-<!-- =====================================================
-     SECTION 14 — IF YOU'RE STILL SAD
-===================================================== -->
-
-<section
-    id="ifStillSad"
-    class="section comfort-section"
->
-
-    <div class="section-container">
-
-        <div class="section-number">
-            13
-        </div>
-
-
-        <div class="comfort-card">
-
-            <div class="comfort-icon">
-                🫂
-            </div>
-
-
-            <h2>
-                If You're Still Sad...
-            </h2>
-
-
-            <p>
-
-                That's okay.
-
-                <br><br>
-
-                You don't have to be happy
-                just because I apologized.
-
-                <br><br>
-
-                You don't have to forgive me
-                before you're ready.
-
-                <br><br>
-
-                Take your time.
-
-                Feel whatever you need to feel.
-
-                <br><br>
-
-                And when you're ready...
-
-                I'll be here.
-
-                <br><br>
-
-                Not to pressure you.
-
-                Not to force anything.
-
-                Just to remind you
-                that you don't have to
-                carry everything alone.
-
-                <br><br>
-
-                Come here, Bhalu.
-
-                🫂❤️
-
-            </p>
-
-
-            <button
-                class="next-btn"
-                data-next="future"
-            >
-
-                Let's Imagine Our Future...
-
-                🌌
-
-            </button>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- =====================================================
-     SECTION 15 — OUR FUTURE
-===================================================== -->
-
-<section
-    id="future"
-    class="section future-section"
->
-
-    <div class="section-container">
-
-        <div class="section-number">
-            14
-        </div>
-
-
-        <h2 class="section-title">
-
-            Our Future
-
-            🌌❤️
-
-        </h2>
-
-
-        <p class="section-subtitle">
-
-            There are still so many chapters
-            left to write.
-
-        </p>
-
-
-        <div class="future-timeline">
-
-
-            <div class="future-item">
-
-                <div class="future-icon">
-                    🌅
-                </div>
-
-                <div>
-
-                    <h3>
-                        More Sunrises
-                    </h3>
-
-                    <p>
-                        More mornings,
-                        more conversations,
-                        more reasons to smile.
-                    </p>
-
-                </div>
-
-            </div>
-
-
-            <div class="future-item">
-
-                <div class="future-icon">
-                    ✈️
-                </div>
-
-                <div>
+                    <span>
+                        CHAPTER 01
+                    </span>
 
                     <h3>
                         More Adventures
                     </h3>
 
                     <p>
-                        Places we've never seen,
-                        memories we've never made.
+                        New places.
+                        New experiences.
+                        New adventures.
+                        Hopefully with you beside me.
                     </p>
 
-                </div>
-
-            </div>
+                </article>
 
 
-            <div class="future-item">
+                <article class="future-item reveal">
 
-                <div class="future-icon">
-                    📸
-                </div>
+                    <div class="future-icon">
+                        📸
+                    </div>
 
-                <div>
+                    <span>
+                        CHAPTER 02
+                    </span>
 
                     <h3>
                         More Memories
                     </h3>
 
                     <p>
-                        More pictures,
-                        more videos,
-                        more stories to tell.
-                    </p>
-
-                </div>
-
-            </div>
-
-
-            <div class="future-item">
-
-                <div class="future-icon">
-                    😂
-                </div>
-
-                <div>
-
-                    <h3>
-                        More Laughter
-                    </h3>
-
-                    <p>
+                        More pictures.
+                        More videos.
                         More silly moments
-                        that only we understand.
+                        that we'll remember forever.
                     </p>
 
-                </div>
-
-            </div>
+                </article>
 
 
-            <div class="future-item">
+                <article class="future-item reveal">
 
-                <div class="future-icon">
-                    🫂
-                </div>
+                    <div class="future-icon">
+                        🌅
+                    </div>
 
-                <div>
+                    <span>
+                        CHAPTER 03
+                    </span>
 
                     <h3>
-                        More Hugs
+                        More Beautiful Days
                     </h3>
 
                     <p>
-                        The kind where neither
-                        of us wants to let go.
+                        Watching the world change
+                        while we continue growing
+                        and learning together.
                     </p>
 
-                </div>
-
-            </div>
+                </article>
 
 
-            <div class="future-item">
+                <article class="future-item reveal">
 
-                <div class="future-icon">
-                    ♾️
-                </div>
+                    <div class="future-icon">
+                        ♾️
+                    </div>
 
-                <div>
+                    <span>
+                        CHAPTER 04
+                    </span>
 
                     <h3>
-                        More Us
+                        Hopefully Forever
                     </h3>
 
                     <p>
-                        Whatever the future brings,
-                        I hope it has a little
-                        bit of you and me.
+                        One day at a time.
+                        One memory at a time.
+                        One beautiful chapter at a time.
+                    </p>
+
+                </article>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ==================================================
+         SECTION 12 — PROMISES
+    =================================================== -->
+
+    <section
+        id="promises"
+        class="promises-section page-section"
+    >
+
+        <div class="section-container">
+
+            <div class="section-heading reveal">
+
+                <span class="section-label">
+                    CHAPTER 11
+                </span>
+
+                <h2>
+                    My Promises To You
+                </h2>
+
+            </div>
+
+
+            <div class="promise-list">
+
+
+                <article class="promise reveal">
+
+                    <span>
+                        01
+                    </span>
+
+                    <p>
+                        I promise to listen
+                        when you need to be heard.
+                    </p>
+
+                </article>
+
+
+                <article class="promise reveal">
+
+                    <span>
+                        02
+                    </span>
+
+                    <p>
+                        I promise to respect
+                        your feelings.
+                    </p>
+
+                </article>
+
+
+                <article class="promise reveal">
+
+                    <span>
+                        03
+                    </span>
+
+                    <p>
+                        I promise to support
+                        your dreams.
+                    </p>
+
+                </article>
+
+
+                <article class="promise reveal">
+
+                    <span>
+                        04
+                    </span>
+
+                    <p>
+                        I promise to celebrate
+                        your happiness.
+                    </p>
+
+                </article>
+
+
+                <article class="promise reveal">
+
+                    <span>
+                        05
+                    </span>
+
+                    <p>
+                        I promise to keep learning
+                        how to love you better.
+                    </p>
+
+                </article>
+
+
+                <article class="promise reveal">
+
+                    <span>
+                        06
+                    </span>
+
+                    <p>
+                        I promise to never stop
+                        appreciating you.
+                    </p>
+
+                </article>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ==================================================
+         SECTION 13 — SPECIAL QUESTION
+    =================================================== -->
+
+    <section
+        id="question"
+        class="question-section page-section"
+    >
+
+        <div class="section-container reveal">
+
+            <span class="section-label">
+                CHAPTER 12
+            </span>
+
+            <h2>
+                One Little Question...
+            </h2>
+
+            <div class="question-card">
+
+                <div class="question-icon">
+                    🥺❤️
+                </div>
+
+                <h3>
+                    Will You Keep Making
+                    Beautiful Memories With Me?
+                </h3>
+
+                <p>
+                    I promise I'll keep trying
+                    to make them worth remembering.
+                </p>
+
+                <div class="question-buttons">
+
+                    <button
+                        id="yesButton"
+                        class="question-button yes-button"
+                        type="button"
+                    >
+                        Yes ❤️
+                    </button>
+
+                    <button
+                        id="thinkButton"
+                        class="question-button think-button"
+                        type="button"
+                    >
+                        Let Me Think 🥺
+                    </button>
+
+                </div>
+
+                <p
+                    id="questionResponse"
+                    class="question-response"
+                ></p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ==================================================
+         SECTION 14 — PHOTO GALLERY
+    =================================================== -->
+
+    <section
+        id="gallery"
+        class="gallery-section page-section"
+    >
+
+        <div class="section-container">
+
+            <div class="section-heading reveal">
+
+                <span class="section-label">
+                    CHAPTER 13
+                </span>
+
+                <h2>
+                    Our Little Gallery 📸
+                </h2>
+
+                <p>
+                    A few pictures.
+                    A million feelings.
+                </p>
+
+            </div>
+
+
+            <div class="gallery-grid">
+
+
+                <figure class="gallery-item reveal">
+
+                    <img
+                        src="images/gallery1.jpg"
+                        alt="Our memory 1"
+                        loading="lazy"
+                    >
+
+                </figure>
+
+
+                <figure class="gallery-item reveal">
+
+                    <img
+                        src="images/gallery2.jpg"
+                        alt="Our memory 2"
+                        loading="lazy"
+                    >
+
+                </figure>
+
+
+                <figure class="gallery-item reveal">
+
+                    <img
+                        src="images/gallery3.jpg"
+                        alt="Our memory 3"
+                        loading="lazy"
+                    >
+
+                </figure>
+
+
+                <figure class="gallery-item reveal">
+
+                    <img
+                        src="images/gallery4.jpg"
+                        alt="Our memory 4"
+                        loading="lazy"
+                    >
+
+                </figure>
+
+
+                <figure class="gallery-item reveal">
+
+                    <img
+                        src="images/gallery5.jpg"
+                        alt="Our memory 5"
+                        loading="lazy"
+                    >
+
+                </figure>
+
+
+                <figure class="gallery-item reveal">
+
+                    <img
+                        src="images/gallery6.jpg"
+                        alt="Our memory 6"
+                        loading="lazy"
+                    >
+
+                </figure>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ==================================================
+         SECTION 15 — VIDEO GALLERY
+    =================================================== -->
+
+    <section
+        id="videoGallery"
+        class="video-gallery-section page-section"
+    >
+
+        <div class="section-container">
+
+            <div class="section-heading reveal">
+
+                <span class="section-label">
+                    CHAPTER 14
+                </span>
+
+                <h2>
+                    Our Memories In Motion 🎥
+                </h2>
+
+            </div>
+
+
+            <div class="video-grid">
+
+
+                <article class="video-card reveal">
+
+                    <video
+                        controls
+                        playsinline
+                        preload="metadata"
+                    >
+
+                        <source
+                            src="videos/video2.mp4"
+                            type="video/mp4"
+                        >
+
+                    </video>
+
+                    <h3>
+                        A Special Moment
+                    </h3>
+
+                </article>
+
+
+                <article class="video-card reveal">
+
+                    <video
+                        controls
+                        playsinline
+                        preload="metadata"
+                    >
+
+                        <source
+                            src="videos/final-video.mp4"
+                            type="video/mp4"
+                        >
+
+                    </video>
+
+                    <h3>
+                        A Memory For Forever
+                    </h3>
+
+                </article>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ==================================================
+         SECTION 16 — FINAL MEMORY
+    =================================================== -->
+
+    <section
+        id="finalMemory"
+        class="final-memory-section page-section"
+    >
+
+        <div class="section-container reveal">
+
+            <span class="section-label">
+                CHAPTER 15
+            </span>
+
+            <h2>
+                And Finally...
+            </h2>
+
+            <div class="final-memory-card">
+
+                <div class="final-image-wrapper">
+
+                    <img
+                        src="images/final.jpg"
+                        alt="Our final special memory"
+                        loading="lazy"
+                    >
+
+                </div>
+
+                <div class="final-memory-content">
+
+                    <h3>
+                        This Is Only The Beginning.
+                    </h3>
+
+                    <p>
+                        We have already created
+                        so many beautiful memories.
+                    </p>
+
+                    <p>
+                        But I believe the best ones
+                        are still waiting for us.
                     </p>
 
                 </div>
 
             </div>
 
-
         </div>
 
+    </section>
 
-        <button
-            class="next-btn"
-            data-next="specialQuestion"
-        >
 
-            I Have One Question...
+    <!-- ==================================================
+         SECTION 17 — FINAL CINEMATIC SURPRISE
+    =================================================== -->
 
-            💍
+    <section
+        id="finalSurprise"
+        class="cinematic-final-section page-section"
+    >
 
-        </button>
+        <div class="cinematic-background"></div>
 
-    </div>
+        <div class="cinematic-overlay"></div>
 
-</section>
+        <div class="cinematic-content reveal">
 
-
-
-<!-- =====================================================
-     SECTION 16 — SPECIAL QUESTION
-===================================================== -->
-
-<section
-    id="specialQuestion"
-    class="section question-section"
->
-
-    <div class="section-container">
-
-        <div class="section-number">
-            15
-        </div>
-
-
-        <div class="question-card">
-
-            <div class="question-heart">
-                💗
-            </div>
-
-
-            <h2>
-                One Question...
-            </h2>
-
-
-            <p>
-
-                I don't need an answer right now.
-
-                <br><br>
-
-                I just want you to think about it.
-
-            </p>
-
-
-            <h3>
-
-                Will you continue
-                this beautiful journey
-                with me?
-
-                🐻❤️
-
-            </h3>
-
-
-            <div class="question-buttons">
-
-                <button
-                    id="yesButton"
-                    class="primary-btn"
-                >
-
-                    Yes ❤️
-
-                </button>
-
-
-                <button
-                    id="thinkButton"
-                    class="secondary-btn"
-                >
-
-                    Let Me Think 🥺
-
-                </button>
-
-            </div>
-
-
-            <div
-                id="questionResponse"
-                class="question-response"
-            >
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- =====================================================
-     SECTION 17 — FINAL SURPRISE
-===================================================== -->
-
-<section
-    id="finalSurprise"
-    class="section final-section"
->
-
-    <div class="final-overlay">
-
-    </div>
-
-
-    <div class="final-content">
-
-        <p
-            class="final-eyebrow"
-        >
-
-            And Now...
-
-        </p>
-
-
-        <h1>
-
-            This Is My Final Message
-
-            ❤️
-
-        </h1>
-
-
-        <div
-            class="final-image-container"
-        >
-
-            <img
-                src="final.jpg"
-                alt="My Favorite Person"
-            >
-
-        </div>
-
-
-        <div
-            id="finalMessage"
-            class="final-message"
-        >
-
-            <p>
-
-                Bhalu...
-
-            </p>
-
-
-            <p>
-
-                If you remember
-                only one thing from this website...
-
-            </p>
-
-
-            <p
-                class="highlight"
-            >
-
-                Remember that you are loved.
-
-            </p>
-
-
-            <p>
-
-                You are important.
-
-                <br>
-
-                You are special.
-
-                <br>
-
-                You are appreciated.
-
-                <br>
-
-                And you are deeply,
-                genuinely loved.
-
-            </p>
-
-
-            <p>
-
-                I'm sorry for the moments
-                when I made your heart heavy.
-
-            </p>
-
-
-            <p>
-
-                I hope I can spend
-                many more moments
-                making it lighter.
-
-            </p>
-
-
-            <p>
-
-                More smiles.
-
-                <br>
-
-                More memories.
-
-                <br>
-
-                More adventures.
-
-                <br>
-
-                More laughter.
-
-                <br>
-
-                More love.
-
-            </p>
-
-
-            <p
-                class="big-love"
-            >
-
-                More Us.
-
-                ❤️
-
-            </p>
-
-
-            <p>
-
-                No matter how many pages
-                I create...
-
-                <br><br>
-
-                No matter how many words
-                I write...
-
-                <br><br>
-
-                I don't think I'll ever
-                find enough words
-                to explain what you mean to me.
-
-            </p>
-
-
-            <p
-                class="signature"
-            >
-
-                Forever your...
-
-                <br>
-
-                <strong>
-                    Bhalu's Person 🐻❤️
-                </strong>
-
-            </p>
-
-        </div>
-
-
-        <button
-            id="finalHugButton"
-            class="final-hug-button"
-        >
-
-            Give Me A Hug
-
-            🫂❤️
-
-        </button>
-
-
-        <div
-            id="finalSurpriseMessage"
-            class="final-surprise-message"
-        >
-
-            <div class="huge-heart">
+            <div class="final-heart">
                 ❤️
             </div>
 
+            <span class="section-label">
+                THE FINAL CHAPTER
+            </span>
 
             <h2>
-                Come Here, Bhalu...
+                One Last Thing...
             </h2>
 
+            <p
+                id="finalTyping"
+                class="typing-text final-message-text"
+                data-typing="No matter where life takes us, no matter how many years pass, and no matter how much the world changes... I hope you always remember that there is someone who will always be grateful that you came into his life."
+            ></p>
 
-            <p>
-
-                Consider this the biggest
-                virtual hug in the world.
+            <button
+                id="finalHugButton"
+                class="final-hug-button"
+                type="button"
+            >
 
                 🫂
 
-            </p>
+                Give Me One Last Hug
+
+            </button>
 
 
-            <p>
+            <div
+                id="finalSurpriseMessage"
+                class="final-surprise-message"
+                hidden
+            >
 
-                I love you.
+                <div class="surprise-heart">
+                    💖
+                </div>
 
-            </p>
+                <h3>
+                    Surprise, Bhalu...
+                </h3>
+
+                <p>
+                    If you ever feel sad,
+                    come back to this little corner
+                    of the internet.
+                </p>
+
+                <p>
+                    Read these words again.
+                    Watch these memories again.
+                    And remember...
+                </p>
+
+                <h4>
+                    YOU ARE LOVED.
+                </h4>
+
+                <p>
+                    More than you realize.
+                    More than I can explain.
+                    And more than this tiny website
+                    could ever contain.
+                </p>
+
+                <div class="final-love-message">
+
+                    Happy Birthday,
+                    My Beautiful Bhalu 🐻❤️
+
+                    <br><br>
+
+                    I'm Sorry.
+                    I Love You.
+                    And I Hope You Always Smile.
+
+                    <br><br>
+
+                    Always & Forever. ❤️
+
+                </div>
+
+            </div>
 
         </div>
 
+    </section>
 
-    </div>
-
-</section>
-
+</main>
 
 
-<!-- =====================================================
+<!-- ==================================================
      FOOTER
-===================================================== -->
+=================================================== -->
 
 <footer
     id="footer"
-    class="footer"
+    class="site-footer"
 >
 
     <div class="footer-heart">
         ❤️
     </div>
 
+    <p>
+        Made with all my heart,
+        especially for you.
+    </p>
 
     <p>
-
-        Made with all my heart,
-
-        especially for you.
-
+        For my Bhalu 🐻💕
     </p>
 
-
-    <p
-        class="footer-signature"
-    >
-
-        For My Bhalu 🐻❤️
-
-    </p>
-
-
-    <p
-        class="footer-date"
-    >
-
-        Our story continues...
-
-        ♾️
-
-    </p>
+    <div class="footer-bear">
+        🐻
+    </div>
 
 </footer>
 
 
-
-</main>
-
-
-
-<!-- =====================================================
-     CONFETTI CONTAINER
-===================================================== -->
-
-<div
-    id="confettiContainer"
-    class="confetti-container"
->
-
-</div>
-
-
-
-<!-- =====================================================
-     HEART BURST CONTAINER
-===================================================== -->
-
-<div
-    id="heartBurstContainer"
-    class="heart-burst-container"
->
-
-</div>
-
-
-
-<!-- =====================================================
-     JAVASCRIPT
-     
-     Add your JavaScript file here.
-===================================================== -->
+<!-- ==================================================
+     EXTERNAL JAVASCRIPT
+=================================================== -->
 
 <script
     src="script.js"
+    defer
 ></script>
-
+```
 
 </body>
 
