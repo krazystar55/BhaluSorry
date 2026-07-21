@@ -1,51 +1,168 @@
-/* =========================================================
-BHALU LOVE WEBSITE — COMPLETE SCRIPT.JS
-Interactive • Romantic • Cinematic
-========================================================= */
+/* ============================================================
+BHALU LOVE STORY — COMPLETE SCRIPT.JS
+Built specifically for the supplied index.html
+============================================================ */
 
 document.addEventListener("DOMContentLoaded", () => {
 
 ```
-/* =====================================================
-   1. LOADING SCREEN
-===================================================== */
+"use strict";
 
-const loadingScreen =
-    document.querySelector(".loading-screen");
+/* ============================================================
+   ELEMENTS
+============================================================ */
 
-const loadingProgress =
-    document.querySelector(".loading-progress");
+const loadingScreen = document.getElementById("loadingScreen");
+const loadingProgress = document.getElementById("loadingProgress");
+const loadingStatus = document.querySelector(".loading-status");
 
-let progress = 0;
+const musicToggle = document.getElementById("musicToggle");
+const backgroundMusic = document.getElementById("backgroundMusic");
 
-if (loadingScreen) {
+const floatingHearts = document.getElementById("floatingHearts");
+const petals = document.getElementById("petals");
+const confettiContainer = document.getElementById("confettiContainer");
+const heartBurstContainer = document.getElementById("heartBurstContainer");
 
-    const loadingInterval = setInterval(() => {
+const beginJourney = document.getElementById("beginJourney");
 
-        progress += Math.floor(Math.random() * 8) + 3;
+const reasonNumber = document.getElementById("reasonNumber");
+const reasonText = document.getElementById("reasonText");
+const nextReason = document.getElementById("nextReason");
+
+const unlockSecret = document.getElementById("unlockSecret");
+const secretContent = document.getElementById("secretContent");
+
+const yesButton = document.getElementById("yesButton");
+const thinkButton = document.getElementById("thinkButton");
+const questionResponse = document.getElementById("questionResponse");
+
+const finalHugButton = document.getElementById("finalHugButton");
+const finalSurpriseMessage =
+    document.getElementById("finalSurpriseMessage");
+
+const revealElements =
+    document.querySelectorAll(".reveal");
+
+const typingElements =
+    document.querySelectorAll(".typing-text");
+
+const navLinks =
+    document.querySelectorAll(".main-navigation a");
+
+const allVideos =
+    document.querySelectorAll("video");
+
+
+/* ============================================================
+   GLOBAL STATE
+============================================================ */
+
+let musicPlaying = false;
+let reasonIndex = 0;
+let secretUnlocked = false;
+let finalSurpriseOpened = false;
+
+
+/* ============================================================
+   01 — LOADING SCREEN
+============================================================ */
+
+function startLoadingScreen() {
+
+    if (!loadingScreen || !loadingProgress) {
+        return;
+    }
+
+    document.body.classList.add("loading-active");
+
+    let progress = 0;
+
+    const loadingMessages = [
+        "Preparing our memories...",
+        "Collecting beautiful moments...",
+        "Writing a little love story...",
+        "Adding lots of love...",
+        "Almost ready, Bhalu...",
+        "Everything is ready for you ❤️"
+    ];
+
+    let messageIndex = 0;
+
+    const interval = setInterval(() => {
+
+        progress += Math.floor(
+            Math.random() * 8
+        ) + 4;
+
+        if (progress >= 100) {
+            progress = 100;
+        }
+
+        loadingProgress.style.width =
+            `${progress}%`;
+
+        if (
+            progress > 15 &&
+            progress < 35
+        ) {
+            messageIndex = 1;
+        }
+
+        if (
+            progress >= 35 &&
+            progress < 55
+        ) {
+            messageIndex = 2;
+        }
+
+        if (
+            progress >= 55 &&
+            progress < 75
+        ) {
+            messageIndex = 3;
+        }
+
+        if (
+            progress >= 75 &&
+            progress < 95
+        ) {
+            messageIndex = 4;
+        }
+
+        if (progress >= 95) {
+            messageIndex = 5;
+        }
+
+        if (loadingStatus) {
+            loadingStatus.textContent =
+                loadingMessages[messageIndex];
+        }
 
         if (progress >= 100) {
 
-            progress = 100;
-
-            clearInterval(loadingInterval);
-
-            if (loadingProgress) {
-                loadingProgress.style.width = "100%";
-            }
+            clearInterval(interval);
 
             setTimeout(() => {
 
-                loadingScreen.classList.add("hidden");
+                loadingScreen.classList.add(
+                    "hidden"
+                );
 
-            }, 700);
+                document.body.classList.remove(
+                    "loading-active"
+                );
 
-        }
+                setTimeout(() => {
 
-        if (loadingProgress) {
+                    loadingScreen.style.display =
+                        "none";
 
-            loadingProgress.style.width =
-                `${progress}%`;
+                }, 1000);
+
+                startAmbientEffects();
+
+            }, 800);
 
         }
 
@@ -53,156 +170,152 @@ if (loadingScreen) {
 
 }
 
+startLoadingScreen();
 
-/* =====================================================
-   2. MUSIC PLAYER
-===================================================== */
 
-const musicToggle =
-    document.querySelector(".music-toggle");
+/* ============================================================
+   02 — BEGIN JOURNEY BUTTON
+============================================================ */
 
-const birthdaySong =
-    document.querySelector("#birthdaySong");
+if (beginJourney) {
 
-const musicIcon =
-    document.querySelector(".music-icon");
+    beginJourney.addEventListener(
+        "click",
+        () => {
 
-let musicPlaying = false;
+            const intro =
+                document.getElementById("intro");
 
-if (musicToggle && birthdaySong) {
+            if (intro) {
 
-    musicToggle.addEventListener("click", () => {
-
-        if (musicPlaying) {
-
-            birthdaySong.pause();
-
-            musicPlaying = false;
-
-            musicToggle.classList.remove("playing");
-
-            if (musicIcon) {
-                musicIcon.textContent = "🎵";
-            }
-
-        } else {
-
-            birthdaySong.play()
-                .then(() => {
-
-                    musicPlaying = true;
-
-                    musicToggle.classList.add(
-                        "playing"
-                    );
-
-                    if (musicIcon) {
-                        musicIcon.textContent = "⏸️";
-                    }
-
-                })
-                .catch(() => {
-
-                    alert(
-                        "Click the music button again to start the music ❤️"
-                    );
-
+                intro.scrollIntoView({
+                    behavior: "smooth",
+                    block: "start"
                 });
 
-        }
+            }
 
-    });
+            createHeartBurst(
+                beginJourney
+            );
+
+            createConfetti(20);
+
+        }
+    );
 
 }
 
 
-/* =====================================================
-   3. AUTOPLAY AFTER FIRST USER INTERACTION
-===================================================== */
+/* ============================================================
+   03 — MUSIC CONTROL
+============================================================ */
 
-let musicStarted = false;
+if (
+    musicToggle &&
+    backgroundMusic
+) {
 
-document.addEventListener(
-    "click",
-    () => {
-
-        if (
-            !musicStarted &&
-            birthdaySong
-        ) {
-
-            birthdaySong.play()
-                .then(() => {
-
-                    musicStarted = true;
-
-                    musicPlaying = true;
-
-                    if (musicToggle) {
-                        musicToggle.classList.add(
-                            "playing"
-                        );
-                    }
-
-                })
-                .catch(() => {});
-
-        }
-
-    },
-    { once: true }
-);
-
-
-/* =====================================================
-   4. FLOATING HEARTS
-===================================================== */
-
-const floatingHearts =
-    document.querySelector(
-        ".floating-hearts"
+    musicToggle.addEventListener(
+        "click",
+        toggleMusic
     );
 
-const heartEmojis = [
-    "❤️",
-    "💕",
-    "💖",
-    "💗",
-    "💓",
-    "💞",
-    "💘",
-    "💝"
-];
+}
+
+
+function toggleMusic() {
+
+    if (!backgroundMusic) {
+        return;
+    }
+
+    if (musicPlaying) {
+
+        backgroundMusic.pause();
+
+        musicPlaying = false;
+
+        musicToggle.textContent = "🎵";
+
+        musicToggle.classList.remove(
+            "playing"
+        );
+
+    } else {
+
+        backgroundMusic.play()
+            .then(() => {
+
+                musicPlaying = true;
+
+                musicToggle.textContent =
+                    "🔊";
+
+                musicToggle.classList.add(
+                    "playing"
+                );
+
+            })
+            .catch(() => {
+
+                console.log(
+                    "Music could not autoplay. Click the music button."
+                );
+
+            });
+
+    }
+
+}
+
+
+/* ============================================================
+   04 — FLOATING HEARTS
+============================================================ */
 
 function createFloatingHeart() {
 
-    if (!floatingHearts) return;
+    if (!floatingHearts) {
+        return;
+    }
 
     const heart =
-        document.createElement("div");
+        document.createElement("span");
 
     heart.className =
         "floating-heart";
 
+    const heartSymbols = [
+        "❤️",
+        "💕",
+        "💗",
+        "💖",
+        "💓",
+        "💞",
+        "💘",
+        "💝"
+    ];
+
     heart.textContent =
-        heartEmojis[
+        heartSymbols[
             Math.floor(
                 Math.random() *
-                heartEmojis.length
+                heartSymbols.length
             )
         ];
 
     heart.style.left =
-        Math.random() * 100 + "%";
+        `${Math.random() * 100}%`;
 
     heart.style.fontSize =
-        Math.random() * 25 + 15 + "px";
-
-    const duration =
-        Math.random() * 8 + 7;
+        `${12 + Math.random() * 22}px`;
 
     heart.style.animationDuration =
-        duration + "s";
+        `${6 + Math.random() * 7}s`;
+
+    heart.style.animationDelay =
+        `${Math.random() * 2}s`;
 
     floatingHearts.appendChild(
         heart
@@ -212,858 +325,12 @@ function createFloatingHeart() {
 
         heart.remove();
 
-    }, duration * 1000);
-
-}
-
-setInterval(
-    createFloatingHeart,
-    900
-);
-
-
-/* =====================================================
-   5. FALLING PETALS
-===================================================== */
-
-const petalsContainer =
-    document.querySelector(".petals");
-
-const petalEmojis = [
-    "🌸",
-    "🌹",
-    "🌷",
-    "💮",
-    "🌺"
-];
-
-function createPetal() {
-
-    if (!petalsContainer) return;
-
-    const petal =
-        document.createElement("div");
-
-    petal.className =
-        "petal";
-
-    petal.textContent =
-        petalEmojis[
-            Math.floor(
-                Math.random() *
-                petalEmojis.length
-            )
-        ];
-
-    petal.style.left =
-        Math.random() * 100 + "%";
-
-    petal.style.fontSize =
-        Math.random() * 15 + 12 + "px";
-
-    const duration =
-        Math.random() * 8 + 7;
-
-    petal.style.animationDuration =
-        duration + "s";
-
-    petalsContainer.appendChild(
-        petal
-    );
-
-    setTimeout(() => {
-
-        petal.remove();
-
-    }, duration * 1000);
-
-}
-
-setInterval(
-    createPetal,
-    1800
-);
-
-
-/* =====================================================
-   6. SCROLL REVEAL
-===================================================== */
-
-const revealElements =
-    document.querySelectorAll(
-        ".reveal"
-    );
-
-const revealObserver =
-    new IntersectionObserver(
-        (entries) => {
-
-            entries.forEach(
-                (entry) => {
-
-                    if (
-                        entry.isIntersecting
-                    ) {
-
-                        entry.target.classList.add(
-                            "active"
-                        );
-
-                    }
-
-                }
-            );
-
-        },
-        {
-            threshold: 0.15
-        }
-    );
-
-revealElements.forEach(
-    (element) => {
-
-        revealObserver.observe(
-            element
-        );
-
-    }
-);
-
-
-/* =====================================================
-   7. TYPING EFFECT
-===================================================== */
-
-const typingElements =
-    document.querySelectorAll(
-        "[data-typing]"
-    );
-
-function typeText(
-    element,
-    text,
-    speed = 60
-) {
-
-    element.textContent = "";
-
-    let index = 0;
-
-    const typing =
-        setInterval(() => {
-
-            if (
-                index < text.length
-            ) {
-
-                element.textContent +=
-                    text.charAt(index);
-
-                index++;
-
-            } else {
-
-                clearInterval(
-                    typing
-                );
-
-            }
-
-        }, speed);
+    }, 15000);
 
 }
 
 
-const typingObserver =
-    new IntersectionObserver(
-        (entries) => {
-
-            entries.forEach(
-                (entry) => {
-
-                    if (
-                        entry.isIntersecting &&
-                        !entry.target.dataset.typed
-                    ) {
-
-                        const text =
-                            entry.target.dataset.typing;
-
-                        entry.target.dataset.typed =
-                            "true";
-
-                        typeText(
-                            entry.target,
-                            text
-                        );
-
-                    }
-
-                }
-            );
-
-        },
-        {
-            threshold: 0.5
-        }
-    );
-
-
-typingElements.forEach(
-    (element) => {
-
-        typingObserver.observe(
-            element
-        );
-
-    }
-);
-
-
-/* =====================================================
-   8. MEMORY NAVIGATION
-===================================================== */
-
-const memorySections =
-    document.querySelectorAll(
-        ".memory-section"
-    );
-
-const nextButtons =
-    document.querySelectorAll(
-        ".next-btn"
-    );
-
-let currentMemory = 0;
-
-function showMemory(index) {
-
-    memorySections.forEach(
-        (section, i) => {
-
-            section.style.display =
-                i === index
-                    ? "flex"
-                    : "none";
-
-        }
-    );
-
-    if (
-        memorySections[index]
-    ) {
-
-        memorySections[index]
-            .scrollIntoView({
-                behavior: "smooth"
-            });
-
-    }
-
-}
-
-
-nextButtons.forEach(
-    (button) => {
-
-        button.addEventListener(
-            "click",
-            () => {
-
-                currentMemory++;
-
-                if (
-                    currentMemory >=
-                    memorySections.length
-                ) {
-
-                    currentMemory = 0;
-
-                }
-
-                showMemory(
-                    currentMemory
-                );
-
-            }
-        );
-
-    }
-);
-
-
-/* =====================================================
-   9. 100 REASONS
-===================================================== */
-
-const reasons = [
-
-    "Because your smile can fix even my worst day ❤️",
-
-    "Because you make ordinary moments feel magical ✨",
-
-    "Because you understand me without me saying anything.",
-
-    "Because your voice is my favorite sound.",
-
-    "Because I feel safe when I am with you.",
-
-    "Because you make me want to become a better person.",
-
-    "Because you believe in me even when I don't believe in myself.",
-
-    "Because you are my favorite notification.",
-
-    "Because your happiness matters to me more than anything.",
-
-    "Because you make my heart feel at home.",
-
-    "Because every memory with you is precious.",
-
-    "Because you make me laugh when I don't feel like smiling.",
-
-    "Because I love the way you care about little things.",
-
-    "Because you are beautiful inside and outside.",
-
-    "Because you make my life brighter.",
-
-    "Because I can be completely myself around you.",
-
-    "Because you make distance feel smaller.",
-
-    "Because you are the person I want to tell everything to.",
-
-    "Because you make my heart skip a beat.",
-
-    "Because your hugs feel like home.",
-
-    "Because you are my favorite person.",
-
-    "Because you make every day more special.",
-
-    "Because your happiness makes me happy.",
-
-    "Because you know how to calm my chaos.",
-
-    "Because you are patient with me.",
-
-    "Because you make me feel loved.",
-
-    "Because I love your little habits.",
-
-    "Because I love your laugh.",
-
-    "Because I love your eyes.",
-
-    "Because I love your personality.",
-
-    "Because I love the way you care.",
-
-    "Because you are my biggest comfort.",
-
-    "Because I can talk to you for hours.",
-
-    "Because silence with you is never awkward.",
-
-    "Because you make me feel understood.",
-
-    "Because you are my favorite memory.",
-
-    "Because you are my present.",
-
-    "Because I hope you will be my future.",
-
-    "Because you make me believe in love.",
-
-    "Because you are worth every effort.",
-
-    "Because you inspire me.",
-
-    "Because you motivate me.",
-
-    "Because you make me proud.",
-
-    "Because I love your kindness.",
-
-    "Because I love your strength.",
-
-    "Because I love your heart.",
-
-    "Because you are uniquely you.",
-
-    "Because there is no one else like you.",
-
-    "Because you make my world beautiful.",
-
-    "Because I choose you.",
-
-    "Because I will keep choosing you.",
-
-    "Because you are my favorite hello.",
-
-    "Because I never want to say goodbye.",
-
-    "Because every day with you is a gift.",
-
-    "Because you make my dreams feel possible.",
-
-    "Because I love growing with you.",
-
-    "Because I love learning about you.",
-
-    "Because you are my best friend.",
-
-    "Because you are my partner in everything.",
-
-    "Because I trust you.",
-
-    "Because I respect you.",
-
-    "Because I admire you.",
-
-    "Because I appreciate you.",
-
-    "Because I cherish you.",
-
-    "Because I miss you when you're away.",
-
-    "Because I think about you randomly.",
-
-    "Because you are always in my heart.",
-
-    "Because you are part of my happiest memories.",
-
-    "Because you make my future exciting.",
-
-    "Because I want to travel with you.",
-
-    "Because I want to create more memories with you.",
-
-    "Because I want to watch sunsets with you.",
-
-    "Because I want to watch movies with you.",
-
-    "Because I want to laugh with you.",
-
-    "Because I want to grow old with you.",
-
-    "Because I want to see you achieve your dreams.",
-
-    "Because I want to celebrate your victories.",
-
-    "Because I want to support you during difficult days.",
-
-    "Because I want to be there for you.",
-
-    "Because I want to protect your smile.",
-
-    "Because I want to make you proud.",
-
-    "Because I want to make you feel special.",
-
-    "Because I want you to know how loved you are.",
-
-    "Because you deserve the world.",
-
-    "Because you deserve happiness.",
-
-    "Because you deserve love.",
-
-    "Because you deserve peace.",
-
-    "Because you deserve everything beautiful.",
-
-    "Because you are my favorite chapter.",
-
-    "Because I don't want our story to end.",
-
-    "Because our story is still being written.",
-
-    "Because there are so many memories left to make.",
-
-    "Because I want to fill our future with laughter.",
-
-    "Because I want to hold your hand through life.",
-
-    "Because I want to be your safe place.",
-
-    "Because I want you to always feel loved.",
-
-    "Because my heart chose you.",
-
-    "Because my soul feels connected to you.",
-
-    "Because you are my Bhalu 🐻❤️",
-
-    "Because simply... I love you."
-
-];
-
-
-let reasonIndex = 0;
-
-
-const reasonText =
-    document.querySelector(
-        ".reason-text"
-    );
-
-const reasonNumber =
-    document.querySelector(
-        ".reason-number"
-    );
-
-const reasonButton =
-    document.querySelector(
-        ".heart-button"
-    );
-
-
-function showReason() {
-
-    if (
-        !reasonText ||
-        !reasonNumber
-    ) return;
-
-    reasonText.style.opacity =
-        "0";
-
-    reasonText.style.transform =
-        "translateY(15px)";
-
-    setTimeout(() => {
-
-        reasonText.textContent =
-            reasons[reasonIndex];
-
-        reasonNumber.textContent =
-            `REASON ${reasonIndex + 1} OF ${reasons.length}`;
-
-        reasonText.style.opacity =
-            "1";
-
-        reasonText.style.transform =
-            "translateY(0)";
-
-    }, 250);
-
-    reasonIndex++;
-
-    if (
-        reasonIndex >=
-        reasons.length
-    ) {
-
-        reasonIndex = 0;
-
-    }
-
-}
-
-
-if (reasonButton) {
-
-    reasonButton.addEventListener(
-        "click",
-        () => {
-
-            showReason();
-
-            createHeartBurst(
-                reasonButton
-            );
-
-        }
-    );
-
-}
-
-
-showReason();
-
-
-/* =====================================================
-   10. SECRET MESSAGE
-===================================================== */
-
-const secretButton =
-    document.querySelector(
-        ".secret-btn"
-    );
-
-const secretContent =
-    document.querySelector(
-        ".secret-content"
-    );
-
-
-if (
-    secretButton &&
-    secretContent
-) {
-
-    secretButton.addEventListener(
-        "click",
-        () => {
-
-            secretContent.classList.add(
-                "show"
-            );
-
-            secretButton.style.display =
-                "none";
-
-            createConfetti();
-
-        }
-    );
-
-}
-
-
-/* =====================================================
-   11. SPECIAL QUESTION
-===================================================== */
-
-const questionButtons =
-    document.querySelectorAll(
-        ".question-btn"
-    );
-
-const questionResponse =
-    document.querySelector(
-        ".question-response"
-    );
-
-
-questionButtons.forEach(
-    (button) => {
-
-        button.addEventListener(
-            "click",
-            () => {
-
-                const answer =
-                    button.dataset.answer ||
-                    button.textContent;
-
-                if (
-                    questionResponse
-                ) {
-
-                    questionResponse.textContent =
-                        answer;
-
-                }
-
-                createHeartBurst(
-                    button
-                );
-
-            }
-        );
-
-    }
-);
-
-
-/* =====================================================
-   12. YES BUTTON
-===================================================== */
-
-const yesButton =
-    document.querySelector(
-        ".yes-btn"
-    );
-
-
-if (yesButton) {
-
-    yesButton.addEventListener(
-        "click",
-        () => {
-
-            if (
-                questionResponse
-            ) {
-
-                questionResponse.textContent =
-                    "YAYYY! I knew it! 🥹❤️ I love you forever, Bhalu!";
-
-            }
-
-            createConfetti();
-
-            createMassiveHeartBurst();
-
-        }
-    );
-
-}
-
-
-/* =====================================================
-   13. NO BUTTON PLAYFUL ESCAPE
-===================================================== */
-
-const noButton =
-    document.querySelector(
-        ".no-btn"
-    );
-
-
-if (noButton) {
-
-    noButton.addEventListener(
-        "mouseenter",
-        () => {
-
-            const maxX =
-                window.innerWidth -
-                noButton.offsetWidth -
-                30;
-
-            const maxY =
-                window.innerHeight -
-                noButton.offsetHeight -
-                30;
-
-            noButton.style.position =
-                "fixed";
-
-            noButton.style.left =
-                Math.max(
-                    20,
-                    Math.random() *
-                    maxX
-                ) + "px";
-
-            noButton.style.top =
-                Math.max(
-                    20,
-                    Math.random() *
-                    maxY
-                ) + "px";
-
-        }
-    );
-
-}
-
-
-/* =====================================================
-   14. CONFETTI
-===================================================== */
-
-function createConfetti() {
-
-    let container =
-        document.querySelector(
-            ".confetti-container"
-        );
-
-    if (!container) {
-
-        container =
-            document.createElement(
-                "div"
-            );
-
-        container.className =
-            "confetti-container";
-
-        document.body.appendChild(
-            container
-        );
-
-    }
-
-
-    for (
-        let i = 0;
-        i < 100;
-        i++
-    ) {
-
-        const confetti =
-            document.createElement(
-                "div"
-            );
-
-        confetti.className =
-            "confetti";
-
-        confetti.style.left =
-            Math.random() * 100 +
-            "%";
-
-        confetti.style.top =
-            "-20px";
-
-        confetti.style.background =
-            `hsl(
-                ${Math.random() * 360},
-                80%,
-                65%
-            )`;
-
-        confetti.style.animationDelay =
-            Math.random() * 1.5 +
-            "s";
-
-        container.appendChild(
-            confetti
-        );
-
-        setTimeout(() => {
-
-            confetti.remove();
-
-        }, 4500);
-
-    }
-
-}
-
-
-/* =====================================================
-   15. HEART BURST
-===================================================== */
-
-function createHeartBurst(
-    element
-) {
-
-    if (!element) return;
-
-    let container =
-        document.querySelector(
-            ".heart-burst-container"
-        );
-
-    if (!container) {
-
-        container =
-            document.createElement(
-                "div"
-            );
-
-        container.className =
-            "heart-burst-container";
-
-        document.body.appendChild(
-            container
-        );
-
-    }
-
-
-    const rect =
-        element.getBoundingClientRect();
-
+function startAmbientEffects() {
 
     for (
         let i = 0;
@@ -1071,247 +338,76 @@ function createHeartBurst(
         i++
     ) {
 
-        const heart =
-            document.createElement(
-                "div"
-            );
-
-        heart.className =
-            "burst-heart";
-
-        heart.textContent =
-            heartEmojis[
-                Math.floor(
-                    Math.random() *
-                    heartEmojis.length
-                )
-            ];
-
-        heart.style.left =
-            rect.left +
-            rect.width / 2 +
-            "px";
-
-        heart.style.top =
-            rect.top +
-            rect.height / 2 +
-            "px";
-
-
-        heart.style.setProperty(
-            "--x",
-            (
-                Math.random() * 300 -
-                150
-            ) + "px"
+        setTimeout(
+            createFloatingHeart,
+            i * 200
         );
-
-        heart.style.setProperty(
-            "--y",
-            (
-                Math.random() * 300 -
-                150
-            ) + "px"
-        );
-
-
-        container.appendChild(
-            heart
-        );
-
-
-        setTimeout(() => {
-
-            heart.remove();
-
-        }, 2200);
 
     }
+
+    setInterval(
+        createFloatingHeart,
+        900
+    );
+
+    setInterval(
+        createPetal,
+        1200
+    );
 
 }
 
 
-/* =====================================================
-   16. MASSIVE HEART BURST
-===================================================== */
+/* ============================================================
+   05 — FALLING PETALS
+============================================================ */
 
-function createMassiveHeartBurst() {
+function createPetal() {
 
-    for (
-        let i = 0;
-        i < 60;
-        i++
-    ) {
-
-        setTimeout(() => {
-
-            const heart =
-                document.createElement(
-                    "div"
-                );
-
-            heart.textContent =
-                heartEmojis[
-                    Math.floor(
-                        Math.random() *
-                        heartEmojis.length
-                    )
-                ];
-
-            heart.style.position =
-                "fixed";
-
-            heart.style.left =
-                "50%";
-
-            heart.style.top =
-                "50%";
-
-            heart.style.zIndex =
-                "99999";
-
-            heart.style.fontSize =
-                Math.random() * 30 +
-                15 +
-                "px";
-
-            heart.style.pointerEvents =
-                "none";
-
-            const angle =
-                Math.random() *
-                Math.PI *
-                2;
-
-            const distance =
-                Math.random() *
-                500 +
-                100;
-
-            heart.animate(
-                [
-
-                    {
-                        transform:
-                            "translate(-50%, -50%) scale(0)",
-
-                        opacity:
-                            1
-
-                    },
-
-                    {
-
-                        transform:
-                            `translate(
-                                calc(-50% + ${Math.cos(angle) * distance}px),
-                                calc(-50% + ${Math.sin(angle) * distance}px)
-                            )
-                            scale(1.5)`,
-
-                        opacity:
-                            0
-
-                    }
-
-                ],
-                {
-
-                    duration:
-                        2000,
-
-                    easing:
-                        "cubic-bezier(.2,.8,.2,1)"
-
-                }
-            );
-
-            document.body.appendChild(
-                heart
-            );
-
-            setTimeout(() => {
-
-                heart.remove();
-
-            }, 2200);
-
-        }, i * 25);
-
+    if (!petals) {
+        return;
     }
+
+    const petal =
+        document.createElement("span");
+
+    petal.className =
+        "petal";
+
+    petal.style.left =
+        `${Math.random() * 100}%`;
+
+    petal.style.animationDuration =
+        `${5 + Math.random() * 6}s`;
+
+    petal.style.animationDelay =
+        `${Math.random() * 2}s`;
+
+    petal.style.transform =
+        `rotate(${Math.random() * 360}deg)`;
+
+    petals.appendChild(
+        petal
+    );
+
+    setTimeout(() => {
+
+        petal.remove();
+
+    }, 14000);
 
 }
 
 
-/* =====================================================
-   17. FINAL SURPRISE
-===================================================== */
-
-const finalHugButton =
-    document.querySelector(
-        ".final-hug-button"
-    );
-
-const finalSurprise =
-    document.querySelector(
-        ".final-surprise-message"
-    );
-
+/* ============================================================
+   06 — SCROLL REVEAL
+============================================================ */
 
 if (
-    finalHugButton &&
-    finalSurprise
+    "IntersectionObserver" in window
 ) {
 
-    finalHugButton.addEventListener(
-        "click",
-        () => {
-
-            finalSurprise.classList.add(
-                "show"
-            );
-
-            finalHugButton.style.display =
-                "none";
-
-            createConfetti();
-
-            createMassiveHeartBurst();
-
-            setTimeout(() => {
-
-                finalSurprise.scrollIntoView({
-                    behavior:
-                        "smooth",
-                    block:
-                        "center"
-                });
-
-            }, 500);
-
-        }
-    );
-
-}
-
-
-/* =====================================================
-   18. CINEMATIC FINAL MESSAGE
-===================================================== */
-
-const finalTyping =
-    document.querySelector(
-        ".final-typing"
-    );
-
-
-if (finalTyping) {
-
-    const finalText =
-        finalTyping.dataset.typing ||
-        "No matter where life takes us, I will always choose you.";
-
-    const finalObserver =
+    const revealObserver =
         new IntersectionObserver(
             (entries) => {
 
@@ -1322,17 +418,12 @@ if (finalTyping) {
                             entry.isIntersecting
                         ) {
 
-                            finalTyping.textContent =
-                                "";
-
-                            typeText(
-                                finalTyping,
-                                finalText,
-                                70
+                            entry.target.classList.add(
+                                "visible"
                             );
 
-                            finalObserver.unobserve(
-                                finalTyping
+                            revealObserver.unobserve(
+                                entry.target
                             );
 
                         }
@@ -1342,85 +433,641 @@ if (finalTyping) {
 
             },
             {
-                threshold:
-                    0.5
+                threshold: 0.12,
+                rootMargin:
+                    "0px 0px -50px 0px"
             }
         );
 
 
-    finalObserver.observe(
-        finalTyping
+    revealElements.forEach(
+        (element) => {
+
+            revealObserver.observe(
+                element
+            );
+
+        }
+    );
+
+} else {
+
+    revealElements.forEach(
+        (element) => {
+
+            element.classList.add(
+                "visible"
+            );
+
+        }
     );
 
 }
 
 
-/* =====================================================
-   19. DOUBLE CLICK LOVE EFFECT
-===================================================== */
+/* ============================================================
+   07 — TYPING EFFECT
+============================================================ */
 
-document.addEventListener(
-    "dblclick",
-    (event) => {
+function typeText(
+    element,
+    text,
+    speed = 35
+) {
 
-        const heart =
-            document.createElement(
-                "div"
+    if (!element) {
+        return;
+    }
+
+    element.textContent = "";
+
+    let index = 0;
+
+    const cursor =
+        document.createElement("span");
+
+    cursor.className =
+        "typing-cursor";
+
+    cursor.textContent =
+        "|";
+
+    element.appendChild(
+        cursor
+    );
+
+
+    const interval =
+        setInterval(() => {
+
+            if (
+                index >= text.length
+            ) {
+
+                clearInterval(interval);
+
+                setTimeout(() => {
+
+                    cursor.remove();
+
+                }, 1500);
+
+                return;
+
+            }
+
+            cursor.before(
+                document.createTextNode(
+                    text[index]
+                )
             );
 
-        heart.textContent =
-            "❤️";
+            index++;
 
-        heart.style.position =
-            "fixed";
+        }, speed);
 
-        heart.style.left =
-            event.clientX + "px";
+}
 
-        heart.style.top =
-            event.clientY + "px";
 
-        heart.style.fontSize =
-            "50px";
+if (
+    "IntersectionObserver" in window
+) {
 
-        heart.style.zIndex =
-            "99999";
+    const typingObserver =
+        new IntersectionObserver(
+            (entries) => {
 
-        heart.style.pointerEvents =
-            "none";
+                entries.forEach(
+                    (entry) => {
 
-        heart.animate(
-            [
+                        if (
+                            entry.isIntersecting
+                        ) {
 
-                {
-                    transform:
-                        "translate(-50%, -50%) scale(0)",
+                            const element =
+                                entry.target;
 
-                    opacity:
-                        1
+                            if (
+                                element.dataset.typed ===
+                                "true"
+                            ) {
+                                return;
+                            }
 
-                },
+                            const text =
+                                element.dataset.typing ||
+                                element.textContent;
 
-                {
+                            element.dataset.typed =
+                                "true";
 
-                    transform:
-                        "translate(-50%, -150%) scale(1.5)",
+                            typeText(
+                                element,
+                                text,
+                                28
+                            );
 
-                    opacity:
-                        0
+                            typingObserver.unobserve(
+                                element
+                            );
 
-                }
+                        }
 
-            ],
+                    }
+                );
+
+            },
             {
-
-                duration:
-                    1000
-
+                threshold: 0.3
             }
         );
 
-        document.body.appendChild(
+
+    typingElements.forEach(
+        (element) => {
+
+            typingObserver.observe(
+                element
+            );
+
+        }
+    );
+
+}
+
+
+/* ============================================================
+   08 — 100 REASONS
+============================================================ */
+
+const reasons = [
+
+    "Because your smile can instantly make my worst day better. ❤️",
+
+    "Because you make ordinary moments feel extraordinary.",
+
+    "Because I can be completely myself when I am with you.",
+
+    "Because your happiness genuinely matters to me.",
+
+    "Because you understand me even when I don't know how to explain myself.",
+
+    "Because being with you feels like coming home.",
+
+    "Because your voice is one of my favorite sounds in the world.",
+
+    "Because you are beautiful inside and outside.",
+
+    "Because you inspire me to become a better person.",
+
+    "Because every memory with you is precious to me.",
+
+    "Because you believe in me when I sometimes struggle to believe in myself.",
+
+    "Because you know how to make me laugh.",
+
+    "Because your hugs feel like the safest place.",
+
+    "Because you are my favorite person to talk to.",
+
+    "Because you make my life brighter.",
+
+    "Because you are genuinely one of the most special people in my life.",
+
+    "Because I love the way you care about the people you love.",
+
+    "Because you can still make my heart skip a beat.",
+
+    "Because you are my safe place.",
+
+    "Because every day with you is a gift.",
+
+    "Because your laugh is completely contagious.",
+
+    "Because your presence makes difficult days easier.",
+
+    "Because I love all your little habits and quirks.",
+
+    "Because you are the person I want beside me.",
+
+    "Because you make my world feel more complete.",
+
+    "Because seeing you happy makes me happy.",
+
+    "Because I love listening to your stories.",
+
+    "Because seeing your name on my phone still makes me smile.",
+
+    "Because even silence with you feels comfortable.",
+
+    "Because you bring peace into my heart.",
+
+    "Because you are stronger than you realize.",
+
+    "Because I admire the person you are.",
+
+    "Because you never stop surprising me.",
+
+    "Because you inspire me every day.",
+
+    "Because your heart is beautiful.",
+
+    "Because you make moments unforgettable.",
+
+    "Because you are responsible for so many of my favorite smiles.",
+
+    "Because you make me believe beautiful things are possible.",
+
+    "Because your eyes are beautiful.",
+
+    "Because you make my heart feel warm.",
+
+    "Because you are my favorite adventure.",
+
+    "Because I love growing alongside you.",
+
+    "Because you make love feel special.",
+
+    "Because there is nobody exactly like you.",
+
+    "Because I feel incredibly lucky to know you.",
+
+    "Because you make my dreams feel a little closer.",
+
+    "Because I love every little thing that makes you who you are.",
+
+    "Because you are my favorite hello.",
+
+    "Because saying goodbye to you is always difficult.",
+
+    "Because you make my world brighter just by being in it.",
+
+    "Because your laugh can change my mood instantly.",
+
+    "Because you know me in ways most people don't.",
+
+    "Because I trust you with my heart.",
+
+    "Because you make me feel understood.",
+
+    "Because our silly conversations are some of my favorites.",
+
+    "Because you are my favorite memory in the making.",
+
+    "Because every day with you is worth celebrating.",
+
+    "Because you bring out the best in me.",
+
+    "Because I admire your passion.",
+
+    "Because you make me feel special.",
+
+    "Because you are always somewhere in my thoughts.",
+
+    "Because I love sharing my dreams with you.",
+
+    "Because you make my heart smile.",
+
+    "Because you are my favorite person.",
+
+    "Because you make life more beautiful.",
+
+    "Because you comfort me without always needing words.",
+
+    "Because you make me feel loved.",
+
+    "Because I love your kindness.",
+
+    "Because your soul is beautiful.",
+
+    "Because you can make almost anywhere feel like home.",
+
+    "Because I want to create thousands of memories with you.",
+
+    "Because you are worth every effort.",
+
+    "Because you make my life meaningful.",
+
+    "Because I love the way you care.",
+
+    "Because you make me feel lucky.",
+
+    "Because you are my favorite chapter.",
+
+    "Because I love the story we are creating.",
+
+    "Because I want to write many more chapters with you.",
+
+    "Because you make me believe in love.",
+
+    "Because you are my person.",
+
+    "Because you bring peace to my heart.",
+
+    "Because I genuinely love being around you.",
+
+    "Because you are my favorite human.",
+
+    "Because you make every moment special.",
+
+    "Because your smile is one of my favorite things.",
+
+    "Because you are a huge part of my happiness.",
+
+    "Because I want to see you achieve every dream you have.",
+
+    "Because I will always cheer for you.",
+
+    "Because you deserve to feel loved every single day.",
+
+    "Because I want to give you my best.",
+
+    "Because you make my life unforgettable.",
+
+    "Because I love even the imperfect little things about you.",
+
+    "Because you are perfectly yourself.",
+
+    "Because I would choose you again.",
+
+    "Because you make me feel alive.",
+
+    "Because meeting you was one of the most beautiful surprises of my life.",
+
+    "Because I love every moment we share.",
+
+    "Because my heart chooses you.",
+
+    "Because I hope our future has many beautiful chapters.",
+
+    "Because you are my today.",
+
+    "Because you are a part of the future I dream about.",
+
+    "Because simply... you are you.",
+
+    "And finally, because I love you more than these 100 reasons could ever explain. ❤️"
+
+];
+
+
+function updateReason() {
+
+    if (
+        !reasonText ||
+        !reasonNumber
+    ) {
+        return;
+    }
+
+    reasonText.classList.add(
+        "reason-changing"
+    );
+
+    setTimeout(() => {
+
+        reasonNumber.textContent =
+            `REASON ${reasonIndex + 1} OF ${reasons.length}`;
+
+        reasonText.textContent =
+            reasons[reasonIndex];
+
+        reasonText.classList.remove(
+            "reason-changing"
+        );
+
+    }, 250);
+
+}
+
+
+if (nextReason) {
+
+    nextReason.addEventListener(
+        "click",
+        () => {
+
+            reasonIndex++;
+
+            if (
+                reasonIndex >=
+                reasons.length
+            ) {
+
+                reasonIndex = 0;
+
+            }
+
+            updateReason();
+
+            createHeartBurst(
+                nextReason
+            );
+
+        }
+    );
+
+}
+
+
+/* ============================================================
+   09 — SECRET MESSAGE
+============================================================ */
+
+if (
+    unlockSecret &&
+    secretContent
+) {
+
+    unlockSecret.addEventListener(
+        "click",
+        () => {
+
+            if (!secretUnlocked) {
+
+                secretUnlocked = true;
+
+                secretContent.hidden =
+                    false;
+
+                secretContent.classList.add(
+                    "secret-open"
+                );
+
+                unlockSecret.textContent =
+                    "🔓 My Secret Is Revealed ❤️";
+
+                createHeartBurst(
+                    unlockSecret
+                );
+
+                createConfetti(40);
+
+            } else {
+
+                secretContent.hidden =
+                    true;
+
+                secretContent.classList.remove(
+                    "secret-open"
+                );
+
+                unlockSecret.textContent =
+                    "🔐 Unlock My Secret";
+
+                secretUnlocked = false;
+
+            }
+
+        }
+    );
+
+}
+
+
+/* ============================================================
+   10 — SPECIAL QUESTION
+============================================================ */
+
+if (yesButton) {
+
+    yesButton.addEventListener(
+        "click",
+        () => {
+
+            questionResponse.textContent =
+                "YAYYY! 🥹❤️ Then let's keep creating beautiful memories together. I promise I will keep trying to make you smile.";
+
+            questionResponse.classList.add(
+                "response-visible"
+            );
+
+            yesButton.disabled =
+                true;
+
+            thinkButton.disabled =
+                true;
+
+            createConfetti(80);
+
+            createHeartBurst(
+                yesButton
+            );
+
+        }
+    );
+
+}
+
+
+if (thinkButton) {
+
+    thinkButton.addEventListener(
+        "click",
+        () => {
+
+            questionResponse.textContent =
+                "Take your time, Bhalu... 🥺❤️ I'll be right here. I just hope one day you'll say yes.";
+
+            questionResponse.classList.add(
+                "response-visible"
+            );
+
+            thinkButton.textContent =
+                "Still Thinking? 🥺";
+
+            createHeartBurst(
+                thinkButton
+            );
+
+        }
+    );
+
+}
+
+
+/* ============================================================
+   11 — HEART BURST
+============================================================ */
+
+function createHeartBurst(
+    element
+) {
+
+    if (
+        !element ||
+        !heartBurstContainer
+    ) {
+        return;
+    }
+
+    const rect =
+        element.getBoundingClientRect();
+
+    const centerX =
+        rect.left +
+        rect.width / 2;
+
+    const centerY =
+        rect.top +
+        rect.height / 2;
+
+    const symbols = [
+        "❤️",
+        "💕",
+        "💖",
+        "💗",
+        "💓"
+    ];
+
+
+    for (
+        let i = 0;
+        i < 25;
+        i++
+    ) {
+
+        const heart =
+            document.createElement("span");
+
+        heart.className =
+            "burst-heart";
+
+        heart.textContent =
+            symbols[
+                Math.floor(
+                    Math.random() *
+                    symbols.length
+                )
+            ];
+
+        heart.style.left =
+            `${centerX}px`;
+
+        heart.style.top =
+            `${centerY}px`;
+
+        const angle =
+            Math.random() *
+            Math.PI *
+            2;
+
+        const distance =
+            70 +
+            Math.random() *
+            150;
+
+        heart.style.setProperty(
+            "--x",
+            `${Math.cos(angle) * distance}px`
+        );
+
+        heart.style.setProperty(
+            "--y",
+            `${Math.sin(angle) * distance}px`
+        );
+
+        heartBurstContainer.appendChild(
             heart
         );
 
@@ -1428,103 +1075,306 @@ document.addEventListener(
 
             heart.remove();
 
-        }, 1000);
+        }, 1800);
+
+    }
+
+}
+
+
+/* ============================================================
+   12 — CONFETTI
+============================================================ */
+
+function createConfetti(
+    amount = 60
+) {
+
+    if (!confettiContainer) {
+        return;
+    }
+
+    const symbols = [
+        "❤️",
+        "💕",
+        "✨",
+        "💖",
+        "🌸",
+        "💗"
+    ];
+
+
+    for (
+        let i = 0;
+        i < amount;
+        i++
+    ) {
+
+        const piece =
+            document.createElement("span");
+
+        piece.className =
+            "confetti-piece";
+
+        piece.textContent =
+            symbols[
+                Math.floor(
+                    Math.random() *
+                    symbols.length
+                )
+            ];
+
+        piece.style.left =
+            `${Math.random() * 100}%`;
+
+        piece.style.animationDuration =
+            `${2 + Math.random() * 4}s`;
+
+        piece.style.animationDelay =
+            `${Math.random() * 1.5}s`;
+
+        piece.style.fontSize =
+            `${10 + Math.random() * 18}px`;
+
+        confettiContainer.appendChild(
+            piece
+        );
+
+        setTimeout(() => {
+
+            piece.remove();
+
+        }, 7000);
+
+    }
+
+}
+
+
+/* ============================================================
+   13 — FINAL CINEMATIC SURPRISE
+============================================================ */
+
+if (finalHugButton) {
+
+    finalHugButton.addEventListener(
+        "click",
+        () => {
+
+            if (
+                finalSurpriseOpened
+            ) {
+                return;
+            }
+
+            finalSurpriseOpened =
+                true;
+
+            if (
+                finalSurpriseMessage
+            ) {
+
+                finalSurpriseMessage.hidden =
+                    false;
+
+                finalSurpriseMessage.classList.add(
+                    "surprise-revealed"
+                );
+
+                setTimeout(() => {
+
+                    finalSurpriseMessage.scrollIntoView({
+                        behavior:
+                            "smooth",
+                        block:
+                            "center"
+                    });
+
+                }, 300);
+
+            }
+
+            finalHugButton.textContent =
+                "🫂 Hug Received ❤️";
+
+            createHeartBurst(
+                finalHugButton
+            );
+
+            createConfetti(100);
+
+            /* Try music if it wasn't started */
+
+            if (
+                backgroundMusic &&
+                !musicPlaying
+            ) {
+
+                backgroundMusic.play()
+                    .then(() => {
+
+                        musicPlaying =
+                            true;
+
+                        if (
+                            musicToggle
+                        ) {
+
+                            musicToggle.textContent =
+                                "🔊";
+
+                        }
+
+                    })
+                    .catch(() => {});
+
+            }
+
+        }
+    );
+
+}
+
+
+/* ============================================================
+   14 — NAVIGATION
+============================================================ */
+
+navLinks.forEach(
+    (link) => {
+
+        link.addEventListener(
+            "click",
+            (event) => {
+
+                const targetId =
+                    link.getAttribute(
+                        "href"
+                    );
+
+                const target =
+                    document.querySelector(
+                        targetId
+                    );
+
+                if (!target) {
+                    return;
+                }
+
+                event.preventDefault();
+
+                target.scrollIntoView({
+                    behavior:
+                        "smooth",
+                    block:
+                        "start"
+                });
+
+            }
+        );
 
     }
 );
 
 
-/* =====================================================
-   20. IMAGE LIGHTBOX
-===================================================== */
+/* ============================================================
+   15 — ACTIVE NAVIGATION
+============================================================ */
 
-const galleryImages =
+const sections =
     document.querySelectorAll(
-        ".memory-card img, .gallery img"
+        "section[id]"
     );
 
 
-galleryImages.forEach(
-    (image) => {
+if (
+    "IntersectionObserver" in window
+) {
 
-        image.style.cursor =
-            "pointer";
+    const sectionObserver =
+        new IntersectionObserver(
+            (entries) => {
 
-        image.addEventListener(
-            "click",
+                entries.forEach(
+                    (entry) => {
+
+                        if (
+                            entry.isIntersecting
+                        ) {
+
+                            navLinks.forEach(
+                                (link) => {
+
+                                    link.classList.remove(
+                                        "active"
+                                    );
+
+                                }
+                            );
+
+                            const activeLink =
+                                document.querySelector(
+                                    `.main-navigation a[href="#${entry.target.id}"]`
+                                );
+
+                            if (
+                                activeLink
+                            ) {
+
+                                activeLink.classList.add(
+                                    "active"
+                                );
+
+                            }
+
+                        }
+
+                    }
+                );
+
+            },
+            {
+                threshold:
+                    0.35
+            }
+        );
+
+
+    sections.forEach(
+        (section) => {
+
+            sectionObserver.observe(
+                section
+            );
+
+        }
+    );
+
+}
+
+
+/* ============================================================
+   16 — VIDEO AUTO PAUSE
+============================================================ */
+
+allVideos.forEach(
+    (video) => {
+
+        video.addEventListener(
+            "play",
             () => {
 
-                const overlay =
-                    document.createElement(
-                        "div"
-                    );
+                allVideos.forEach(
+                    (otherVideo) => {
 
-                overlay.style.position =
-                    "fixed";
+                        if (
+                            otherVideo !==
+                            video
+                        ) {
 
-                overlay.style.inset =
-                    "0";
+                            otherVideo.pause();
 
-                overlay.style.zIndex =
-                    "99999";
-
-                overlay.style.background =
-                    "rgba(0,0,0,0.9)";
-
-                overlay.style.display =
-                    "flex";
-
-                overlay.style.alignItems =
-                    "center";
-
-                overlay.style.justifyContent =
-                    "center";
-
-                overlay.style.padding =
-                    "20px";
-
-                overlay.style.cursor =
-                    "zoom-out";
-
-
-                const fullImage =
-                    document.createElement(
-                        "img"
-                    );
-
-                fullImage.src =
-                    image.src;
-
-                fullImage.style.maxWidth =
-                    "95%";
-
-                fullImage.style.maxHeight =
-                    "90vh";
-
-                fullImage.style.objectFit =
-                    "contain";
-
-                fullImage.style.borderRadius =
-                    "20px";
-
-                fullImage.style.boxShadow =
-                    "0 0 80px rgba(255,80,150,0.5)";
-
-
-                overlay.appendChild(
-                    fullImage
-                );
-
-                document.body.appendChild(
-                    overlay
-                );
-
-
-                overlay.addEventListener(
-                    "click",
-                    () => {
-
-                        overlay.remove();
+                        }
 
                     }
                 );
@@ -1536,40 +1386,405 @@ galleryImages.forEach(
 );
 
 
-/* =====================================================
-   21. SMOOTH ANCHOR NAVIGATION
-===================================================== */
+/* ============================================================
+   17 — IMAGE LIGHTBOX
+============================================================ */
+
+const galleryImages =
+    document.querySelectorAll(
+        ".gallery-item img"
+    );
+
+
+galleryImages.forEach(
+    (image) => {
+
+        image.addEventListener(
+            "click",
+            () => {
+
+                openLightbox(
+                    image.src,
+                    image.alt
+                );
+
+            }
+        );
+
+    }
+);
+
+
+function openLightbox(
+    src,
+    alt
+) {
+
+    const lightbox =
+        document.createElement(
+            "div"
+        );
+
+    lightbox.className =
+        "image-lightbox";
+
+    lightbox.innerHTML = `
+
+        <button
+            class="lightbox-close"
+            type="button"
+            aria-label="Close image"
+        >
+            ×
+        </button>
+
+        <img
+            src="${src}"
+            alt="${alt}"
+        >
+
+    `;
+
+    document.body.appendChild(
+        lightbox
+    );
+
+    document.body.classList.add(
+        "lightbox-open"
+    );
+
+
+    const closeButton =
+        lightbox.querySelector(
+            ".lightbox-close"
+        );
+
+
+    function closeLightbox() {
+
+        lightbox.classList.add(
+            "closing"
+        );
+
+        setTimeout(
+            () => {
+
+                lightbox.remove();
+
+                document.body.classList.remove(
+                    "lightbox-open"
+                );
+
+            },
+            300
+        );
+
+    }
+
+
+    closeButton.addEventListener(
+        "click",
+        closeLightbox
+    );
+
+
+    lightbox.addEventListener(
+        "click",
+        (event) => {
+
+            if (
+                event.target ===
+                lightbox
+            ) {
+
+                closeLightbox();
+
+            }
+
+        }
+    );
+
+
+    document.addEventListener(
+        "keydown",
+        function escapeHandler(
+            event
+        ) {
+
+            if (
+                event.key ===
+                "Escape"
+            ) {
+
+                closeLightbox();
+
+                document.removeEventListener(
+                    "keydown",
+                    escapeHandler
+                );
+
+            }
+
+        }
+    );
+
+}
+
+
+/* ============================================================
+   18 — HERO HEART INTERACTION
+============================================================ */
+
+const heroHeart =
+    document.querySelector(
+        ".hero-heart"
+    );
+
+
+if (heroHeart) {
+
+    let clicks = 0;
+
+    heroHeart.addEventListener(
+        "click",
+        () => {
+
+            clicks++;
+
+            createHeartBurst(
+                heroHeart
+            );
+
+            if (
+                clicks === 5
+            ) {
+
+                createConfetti(
+                    50
+                );
+
+                heroHeart.textContent =
+                    "💖";
+
+                setTimeout(
+                    () => {
+
+                        heroHeart.textContent =
+                            "❤️";
+
+                    },
+                    2000
+                );
+
+                clicks = 0;
+
+            }
+
+        }
+    );
+
+}
+
+
+/* ============================================================
+   19 — FINAL HEART INTERACTION
+============================================================ */
+
+const finalHeart =
+    document.querySelector(
+        ".final-heart"
+    );
+
+
+if (finalHeart) {
+
+    finalHeart.addEventListener(
+        "click",
+        () => {
+
+            createHeartBurst(
+                finalHeart
+            );
+
+            createConfetti(
+                30
+            );
+
+        }
+    );
+
+}
+
+
+/* ============================================================
+   20 — DOUBLE CLICK HEART EFFECT
+============================================================ */
+
+document.addEventListener(
+    "dblclick",
+    (event) => {
+
+        createClickExplosion(
+            event.clientX,
+            event.clientY
+        );
+
+    }
+);
+
+
+function createClickExplosion(
+    x,
+    y
+) {
+
+    const symbols = [
+        "❤️",
+        "💕",
+        "💖",
+        "✨"
+    ];
+
+
+    for (
+        let i = 0;
+        i < 12;
+        i++
+    ) {
+
+        const element =
+            document.createElement(
+                "span"
+            );
+
+        element.textContent =
+            symbols[
+                Math.floor(
+                    Math.random() *
+                    symbols.length
+                )
+            ];
+
+        element.style.position =
+            "fixed";
+
+        element.style.left =
+            `${x}px`;
+
+        element.style.top =
+            `${y}px`;
+
+        element.style.zIndex =
+            "99999";
+
+        element.style.pointerEvents =
+            "none";
+
+        element.style.fontSize =
+            `${12 + Math.random() * 18}px`;
+
+        document.body.appendChild(
+            element
+        );
+
+        const angle =
+            Math.random() *
+            Math.PI *
+            2;
+
+        const distance =
+            50 +
+            Math.random() *
+            100;
+
+        element.animate(
+            [
+                {
+                    transform:
+                        "translate(-50%, -50%) scale(0.5)",
+                    opacity:
+                        1
+                },
+                {
+                    transform:
+                        `translate(
+                            calc(-50% + ${Math.cos(angle) * distance}px),
+                            calc(-50% + ${Math.sin(angle) * distance}px)
+                        )
+                        scale(1.5)`,
+                    opacity:
+                        0
+                }
+            ],
+            {
+                duration:
+                    1000 +
+                    Math.random() *
+                    500,
+                easing:
+                    "ease-out"
+            }
+        );
+
+
+        setTimeout(
+            () => {
+
+                element.remove();
+
+            },
+            1600
+        );
+
+    }
+
+}
+
+
+/* ============================================================
+   21 — RIPPLE EFFECT FOR BUTTONS
+============================================================ */
 
 document
     .querySelectorAll(
-        'a[href^="#"]'
+        "button"
     )
     .forEach(
-        (anchor) => {
+        (button) => {
 
-            anchor.addEventListener(
+            button.addEventListener(
                 "click",
                 function (event) {
 
-                    const target =
-                        document.querySelector(
-                            this.getAttribute(
-                                "href"
-                            )
+                    const ripple =
+                        document.createElement(
+                            "span"
                         );
 
-                    if (
-                        target
-                    ) {
+                    ripple.className =
+                        "button-ripple";
 
-                        event.preventDefault();
+                    const rect =
+                        button.getBoundingClientRect();
 
-                        target.scrollIntoView({
-                            behavior:
-                                "smooth"
-                        });
+                    ripple.style.left =
+                        `${event.clientX - rect.left}px`;
 
-                    }
+                    ripple.style.top =
+                        `${event.clientY - rect.top}px`;
+
+                    button.appendChild(
+                        ripple
+                    );
+
+                    setTimeout(
+                        () => {
+
+                            ripple.remove();
+
+                        },
+                        700
+                    );
 
                 }
             );
@@ -1578,31 +1793,21 @@ document
     );
 
 
-/* =====================================================
-   22. RANDOM HEART ON SCROLL
-===================================================== */
+/* ============================================================
+   22 — KEYBOARD SHORTCUT
+   Press M = Music
+============================================================ */
 
-let lastScroll =
-    0;
-
-window.addEventListener(
-    "scroll",
-    () => {
-
-        const currentScroll =
-            window.scrollY;
+document.addEventListener(
+    "keydown",
+    (event) => {
 
         if (
-            Math.abs(
-                currentScroll -
-                lastScroll
-            ) > 300
+            event.key.toLowerCase() ===
+            "m"
         ) {
 
-            createFloatingHeart();
-
-            lastScroll =
-                currentScroll;
+            toggleMusic();
 
         }
 
@@ -1610,64 +1815,42 @@ window.addEventListener(
 );
 
 
-/* =====================================================
-   23. CONSOLE LOVE MESSAGE
-===================================================== */
+/* ============================================================
+   23 — PAGE VISIBILITY
+   Pause music when tab hidden
+============================================================ */
 
-console.log(
-    "%c❤️ Hey Bhalu! ❤️",
-    "font-size: 25px; color: #ff416c; font-weight: bold;"
-);
+document.addEventListener(
+    "visibilitychange",
+    () => {
 
-console.log(
-    "%cSomeone made this entire website just to make you smile. 🐻💕",
-    "font-size: 15px; color: #ff758c;"
-);
+        if (
+            document.hidden &&
+            backgroundMusic &&
+            musicPlaying
+        ) {
 
-console.log(
-    "%cYou are very, very loved. ❤️",
-    "font-size: 18px; color: #e91e63;"
-);
-
-
-/* =====================================================
-   24. INITIALIZE
-===================================================== */
-
-// Start the first memory if memory sections exist
-
-if (
-    memorySections.length > 0
-) {
-
-    memorySections.forEach(
-        (section, index) => {
-
-            section.style.display =
-                index === 0
-                    ? "flex"
-                    : "none";
+            backgroundMusic.pause();
 
         }
-    );
 
-}
+    }
+);
 
 
-// Initial floating hearts
+/* ============================================================
+   24 — CONSOLE MESSAGE
+============================================================ */
 
-for (
-    let i = 0;
-    i < 5;
-    i++
-) {
+console.log(
+    "%c❤️ BHALU LOVE STORY ❤️",
+    "font-size:24px;font-weight:bold;color:#ff5c8a;"
+);
 
-    setTimeout(
-        createFloatingHeart,
-        i * 500
-    );
-
-}
+console.log(
+    "%cMade with love for the most special Bhalu 🐻💕",
+    "font-size:14px;color:#e83e70;"
+);
 ```
 
 });
